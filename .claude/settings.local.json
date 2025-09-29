@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__serena__get_current_config",
+      "Bash(npx create-next-app:*)",
+      "Bash(npm install)",
+      "mcp__serena__write_memory",
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)",
+      "mcp__serena__search_for_pattern",
+      "mcp__serena__find_symbol",
+      "mcp__serena__list_dir",
+      "mcp__serena__find_file",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

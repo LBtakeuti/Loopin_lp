@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --foreground-rgb: 51, 51, 51;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 250, 250, 250;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  }
+  
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-xl bg-black/5 border border-black/10;
+  }
+  
+  .metal-gradient {
+    @apply bg-gradient-to-b from-zinc-100/50 to-zinc-200/50 backdrop-blur-sm;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gradient-blue via-gradient-green to-gradient-purple;
+  }
+  
+  .metal-button {
+    @apply relative overflow-hidden bg-gradient-to-b from-gradient-blue to-gradient-purple text-white border border-gradient-blue/20 hover:from-gradient-purple hover:to-gradient-blue transition-all duration-300;
+  }
+  
+  .metal-button::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-t from-transparent via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300;
+  }
+  
+  .section-padding {
+    @apply px-4 md:px-8 lg:px-16 xl:px-32;
+  }
+
+  .metal-surface {
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05),
+                inset 0 -2px 4px rgba(255, 255, 255, 0.9),
+                0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .glass-panel {
+    background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.9) 0%, 
+                rgba(255, 255, 255, 0.7) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .heading-font {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  }
+  
+  .font-serif {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
