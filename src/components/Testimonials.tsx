@@ -1,15 +1,17 @@
 export default function Testimonials() {
   const testimonials = [
     {
-      quote: '社内コンペの資料作成が2週間から3日に短縮',
-      author: 'IT企業 新規事業部',
-      role: 'プロダクトマネージャー',
+      quote: 'Loopinの壁打ち機能で、漠然としていた「AIを活用した業務効率化サービス」のアイデアが、ターゲット市場、収益モデル、差別化要因まで明確になりました。社内コンペの資料作成が2週間から3日に短縮され、経営陣からの評価も「これまでで最も説得力のある提案」と高評価をいただきました。',
+      author: '株式会社テックイノベーション',
+      role: '新規事業部 プロダクトマネージャー',
+      company: 'IT企業（従業員500名）',
       gradient: 'from-gradient-blue to-gradient-purple',
     },
     {
-      quote: '投資家への説明が数値根拠込みで一貫性を持てた',
-      author: 'スタートアップ',
-      role: 'CEO',
+      quote: 'シード資金調達の際、Loopinで作成した事業計画書とPL表が投資家から「極めて論理的で現実的」と評価されました。特に3年分の財務予測が自動生成され、複数のシナリオ分析もできたため、投資家の質問にも数値根拠を持って即座に回答できました。結果的に目標額の1.5倍の資金調達に成功しました。',
+      author: '株式会社グリーンテック',
+      role: 'CEO / 創業者',
+      company: 'スタートアップ（創業2年目）',
       gradient: 'from-gradient-purple to-gradient-green',
     },
   ]
@@ -35,12 +37,15 @@ export default function Testimonials() {
               <div className={`absolute inset-0 bg-gradient-to-br ${testimonial.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500`} />
               <div className="relative z-10">
                 <div className="text-6xl text-gradient-purple/20 mb-4">"</div>
-                <p className="text-xl text-gray-800 mb-6 leading-relaxed border-b border-gray-200 pb-4">
+                <p className="text-base text-gray-700 mb-6 leading-relaxed border-b border-gray-200 pb-6 min-h-[150px]">
                   {testimonial.quote}
                 </p>
                 <div className="pt-4">
-                  <p className="text-gray-800 font-semibold">{testimonial.author}</p>
-                  <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                  <p className="text-gray-800 font-bold text-lg">{testimonial.author}</p>
+                  <p className="text-gray-700 text-sm font-medium">{testimonial.role}</p>
+                  {testimonial.company && (
+                    <p className="text-gray-500 text-xs mt-1">{testimonial.company}</p>
+                  )}
                 </div>
               </div>
             </div>

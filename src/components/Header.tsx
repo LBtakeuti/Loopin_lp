@@ -9,13 +9,12 @@ export default function Header() {
 
   const menuItems = [
     { label: 'TOP', href: '#hero' },
-    { label: 'Loopinとは', href: '#service' },
+    { label: 'Loopin\u3068\u306f', href: '#service' },
     { label: '機能', href: '#features' },
     { label: 'プラン紹介', href: '#pricing' },
     { label: '紹介', href: '#about' },
     { label: 'ユーザーの声', href: '#testimonials' },
-    { label: '資料請求', href: '#download', isSpecial: true },
-    { label: '問い合わせ', href: '#contact', isSpecial: true },
+    { label: '無料で始める', href: '#contact', isSpecial: true },
   ]
 
   return (
@@ -44,7 +43,7 @@ export default function Header() {
                 href={item.href}
                 className={`text-sm transition-colors duration-200 ${
                   item.isSpecial
-                    ? item.label === '問い合わせ'
+                    ? item.label === '無料で始める'
                       ? 'bg-gradient-to-r from-gradient-blue to-gradient-purple text-white px-4 py-2 rounded-lg hover:opacity-90'
                       : 'text-gradient-blue font-semibold hover:opacity-80'
                     : 'text-gray-700 hover:text-gradient-blue'

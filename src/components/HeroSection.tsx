@@ -2,18 +2,17 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { AuroraBackground } from '@/components/ui/aurora-background'
 
 export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false)
-  
+
   useEffect(() => {
     setIsLoaded(true)
   }, [])
-  
+
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gradient-blue/10 via-gradient-purple/10 to-gradient-green/10 animate-gradient" />
-      <div className="absolute inset-0 bg-metal-texture opacity-90" />
+    <AuroraBackground className="relative min-h-screen" showRadialGradient={false}>
       
       <div className={`relative z-10 text-center section-padding py-20 max-w-6xl mx-auto transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="mb-12 flex justify-center">
@@ -50,9 +49,6 @@ export default function HeroSection() {
           <button className="metal-button px-8 py-4 rounded-2xl text-white font-semibold text-lg shadow-xl hover:shadow-gradient-blue/30 hover:scale-105 transform transition-all duration-300">
             <span className="relative z-10">無料で始める</span>
           </button>
-          <button className="glass-panel px-8 py-4 rounded-2xl text-gray-800 font-semibold text-lg shadow-lg hover:shadow-gradient-purple/30 hover:scale-105 transform transition-all duration-300 hover:bg-gray-50">
-            資料を請求する
-          </button>
         </div>
       </div>
       
@@ -61,6 +57,6 @@ export default function HeroSection() {
           <div className="w-1 h-3 bg-gray-600 rounded-full animate-pulse" />
         </div>
       </div>
-    </section>
+    </AuroraBackground>
   )
 }

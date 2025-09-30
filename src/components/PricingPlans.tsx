@@ -2,19 +2,19 @@ export default function PricingPlans() {
   const individualPlans = [
     {
       name: 'Free',
-      price: '0',
+      price: 'xxxxxxxx',
       features: ['プロジェクト1件', '機能制限あり'],
       recommended: false,
     },
     {
       name: 'Starter',
-      price: '980',
+      price: 'xxxxxxxx',
       features: ['プロジェクト3件まで', '一部制限あり'],
       recommended: false,
     },
     {
       name: 'Pro',
-      price: '2,980',
+      price: 'xxxxxxxx',
       features: ['無制限', '全機能利用可能'],
       recommended: true,
     },
@@ -23,17 +23,17 @@ export default function PricingPlans() {
   const teamPlans = [
     {
       name: 'Team Mini',
-      price: '9,800',
+      price: 'xxxxxxxx',
       features: ['5人まで'],
     },
     {
       name: 'Team Standard',
-      price: '19,800',
+      price: 'xxxxxxxx',
       features: ['10人まで'],
     },
     {
       name: 'Team Plus',
-      price: '29,800',
+      price: 'xxxxxxxx',
       features: ['20人まで'],
     },
     {
@@ -59,23 +59,12 @@ export default function PricingPlans() {
             {individualPlans.map((plan, index) => (
               <div
                 key={index}
-                className={`p-8 border border-gray-200 relative ${
-                  plan.recommended
-                    ? 'border-2 border-purple-500 bg-purple-50'
-                    : 'bg-white'
-                }`}
+                className="p-8 border-2 relative bg-white transition-all duration-300 border-gray-200 hover:border-purple-500 hover:bg-purple-50 hover:shadow-lg hover:shadow-purple-200/50"
               >
-                {plan.recommended && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-gradient-purple to-gradient-blue text-white text-sm px-4 py-1 rounded-full">
-                      おすすめ
-                    </span>
-                  </div>
-                )}
                 <h4 className="text-xl font-bold text-gray-800 mb-2 font-serif border-b border-gray-200 pb-2">{plan.name}</h4>
                 <div className="mb-6">
                   <span className="text-4xl font-bold gradient-text">¥{plan.price}</span>
-                  {plan.price !== '0' && <span className="text-gray-600 text-lg">/月</span>}
+                  {plan.price !== 'xxxxxxxx' && <span className="text-gray-600 text-lg">/月</span>}
                 </div>
                 <ul className="space-y-2 mb-8">
                   {plan.features.map((feature, idx) => (
@@ -85,11 +74,7 @@ export default function PricingPlans() {
                     </li>
                   ))}
                 </ul>
-                <button className={`w-full py-3 border border-gray-300 font-semibold transition-all duration-300 ${
-                  plan.recommended
-                    ? 'bg-purple-600 text-white hover:bg-purple-700'
-                    : 'bg-white text-gray-700 hover:bg-gray-50'
-                }`}>
+                <button className="w-full py-3 border border-gray-300 font-semibold transition-all duration-300 bg-white text-gray-700 hover:bg-gray-50">
                   選択する
                 </button>
               </div>
@@ -103,7 +88,7 @@ export default function PricingPlans() {
             {teamPlans.map((plan, index) => (
               <div
                 key={index}
-                className="p-6 border border-gray-200 bg-white hover:bg-gray-50 transition-all duration-300"
+                className="p-6 border-2 border-gray-200 bg-white hover:border-purple-500 hover:bg-purple-50 hover:shadow-lg hover:shadow-purple-200/50 transition-all duration-300"
               >
                 <h4 className="text-xl font-bold text-gray-800 mb-2 font-serif border-b border-gray-200 pb-2">{plan.name}</h4>
                 <div className="mb-4">
@@ -120,7 +105,7 @@ export default function PricingPlans() {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full py-2 border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 font-semibold text-sm transition-all duration-300">
+                <button className="w-full py-3 border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 font-semibold transition-all duration-300">
                   お問い合わせ
                 </button>
               </div>

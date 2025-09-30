@@ -6,6 +6,7 @@ import PricingPlans from '@/components/PricingPlans'
 import AboutUs from '@/components/AboutUs'
 import Testimonials from '@/components/Testimonials'
 import CTASection from '@/components/CTASection'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <AboutUs />
       <Testimonials />
       <CTASection />
+      <Footer />
     </div>
   )
 }

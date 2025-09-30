@@ -24,11 +24,20 @@ const config: Config = {
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'shimmer': 'shimmer 2s linear infinite',
+        'aurora': 'aurora 60s linear infinite',
       },
       keyframes: {
         shimmer: {
           '0%': { backgroundPosition: '0 50%' },
           '100%': { backgroundPosition: '100% 50%' },
+        },
+        aurora: {
+          from: {
+            backgroundPosition: '50% 50%, 50% 50%',
+          },
+          to: {
+            backgroundPosition: '350% 50%, 350% 50%',
+          },
         },
       },
       fontFamily: {

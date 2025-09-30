@@ -12,7 +12,12 @@
       "mcp__serena__list_dir",
       "mcp__serena__find_file",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(echo $SHELL)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
