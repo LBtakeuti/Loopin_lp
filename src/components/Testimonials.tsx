@@ -2,16 +2,16 @@ export default function Testimonials() {
   const testimonials = [
     {
       quote: 'Loopinの壁打ち機能で、漠然としていた「AIを活用した業務効率化サービス」のアイデアが、ターゲット市場、収益モデル、差別化要因まで明確になりました。社内コンペの資料作成が2週間から3日に短縮され、経営陣からの評価も「これまでで最も説得力のある提案」と高評価をいただきました。',
-      author: '株式会社テックイノベーション',
-      role: '新規事業部 プロダクトマネージャー',
-      company: 'IT企業（従業員500名）',
+      author: '20代　男性',
+      role: 'IT企業勤務',
+      company: 'スタートアップ企業（５期目）',
       gradient: 'from-gradient-blue to-gradient-purple',
     },
     {
       quote: 'シード資金調達の際、Loopinで作成した事業計画書とPL表が投資家から「極めて論理的で現実的」と評価されました。特に3年分の財務予測が自動生成され、複数のシナリオ分析もできたため、投資家の質問にも数値根拠を持って即座に回答できました。結果的に目標額の1.5倍の資金調達に成功しました。',
-      author: '株式会社グリーンテック',
-      role: 'CEO / 創業者',
-      company: 'スタートアップ（創業2年目）',
+      author: '吉田　優希',
+      role: '株式会社GovLet CEO',
+      company: 'スタートアップ',
       gradient: 'from-gradient-purple to-gradient-green',
     },
   ]
@@ -42,7 +42,9 @@ export default function Testimonials() {
                 </p>
                 <div className="pt-4">
                   <p className="text-gray-800 font-bold text-lg">{testimonial.author}</p>
-                  <p className="text-gray-700 text-sm font-medium">{testimonial.role}</p>
+                  {testimonial.role && (
+                    <p className="text-gray-700 text-sm font-medium">{testimonial.role}</p>
+                  )}
                   {testimonial.company && (
                     <p className="text-gray-500 text-xs mt-1">{testimonial.company}</p>
                   )}
