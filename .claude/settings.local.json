@@ -17,7 +17,8 @@
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
       "Bash(echo $SHELL)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(git pull:*)"
     ],
     "deny": [],
     "ask": []

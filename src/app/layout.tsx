@@ -18,6 +18,20 @@ export const metadata: Metadata = {
     title: 'Loopin - 循環の中で、事業は磨かれる',
     description: '新規事業を推進するための"挑戦の循環"を支援するプラットフォーム',
     type: 'website',
+    images: [
+      {
+        url: '/images/Loopin_logoType_light.png',
+        width: 1200,
+        height: 630,
+        alt: 'Loopin',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Loopin - 循環の中で、事業は磨かれる',
+    description: '新規事業を推進するための"挑戦の循環"を支援するプラットフォーム',
+    images: ['/images/Loopin_logoType_light.png'],
   },
 }
 

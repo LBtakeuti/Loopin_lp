@@ -145,7 +145,7 @@ export default function AboutUs() {
 
                     {/* メインの円 */}
                     <div className={`relative w-40 h-40 rounded-full bg-gradient-to-br ${cycle.color} p-1 shadow-2xl hover:scale-110 transition-transform cursor-pointer`}>
-                      <div className="w-full h-full rounded-full bg-white flex flex-col items-center justify-center p-4">
+                      <div className="w-full h-full rounded-full flex flex-col items-center justify-center p-4" style={{ backgroundColor: '#FFFFFF', opacity: 1 }}>
                         <div className={`text-5xl font-bold ${cycle.textColor} mb-2`}>
                           {String(index + 1).padStart(2, '0')}
                         </div>
@@ -184,16 +184,24 @@ export default function AboutUs() {
                 >
                   <polygon
                     points="0 0, 10 3.5, 0 7"
-                    fill="#9CA3AF"
+                    fill="#6B7280"
                   />
                 </marker>
               </defs>
 
-              {/* 円形の矢印パス */}
+              {/* 円形の矢印パス - 背景用 */}
               <path
                 d="M 300 80 A 220 220 0 0 1 490 420 A 220 220 0 0 1 110 420 A 220 220 0 0 1 300 80"
                 fill="none"
-                stroke="#9CA3AF"
+                stroke="white"
+                strokeWidth="4"
+                opacity="0.8"
+              />
+              {/* 円形の矢印パス - メイン */}
+              <path
+                d="M 300 80 A 220 220 0 0 1 490 420 A 220 220 0 0 1 110 420 A 220 220 0 0 1 300 80"
+                fill="none"
+                stroke="#6B7280"
                 strokeWidth="2"
                 strokeDasharray="10,5"
                 markerEnd="url(#arrowhead)"

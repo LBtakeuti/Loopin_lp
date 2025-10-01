@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Features() {
   const features = [
     {
@@ -44,7 +46,16 @@ export default function Features() {
             >
               <div className="flex items-start gap-8">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-gradient-blue to-gradient-purple text-white font-bold text-xl">
+                  <div
+                    className="flex items-center justify-center w-14 h-14 rounded-full text-white font-bold text-xl"
+                    style={{
+                      background: index === 0 ? 'linear-gradient(135deg, #8a63d2 0%, #8a63d2 100%)' :  // 紫
+                                  index === 1 ? 'linear-gradient(135deg, #8a63d2 0%, #6388d2 100%)' :  // 紫→青
+                                  index === 2 ? 'linear-gradient(135deg, #6388d2 0%, #6388d2 100%)' :  // 青
+                                  index === 3 ? 'linear-gradient(135deg, #6388d2 0%, #63d2af 100%)' :  // 青→緑
+                                  'linear-gradient(135deg, #63d2af 0%, #63d2af 100%)'                   // 緑
+                    }}
+                  >
                     {feature.number}
                   </div>
                 </div>
@@ -69,13 +80,19 @@ export default function Features() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-4">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent to-gray-300"></div>
-            <span className="text-sm text-gray-500 font-medium">すべての機能で事業計画を強力サポート</span>
-            <div className="h-px w-24 bg-gradient-to-l from-transparent to-gray-300"></div>
+        {/* 資料出力の画像 */}
+        <div className="mt-16 flex justify-center">
+          <div className="relative max-w-2xl w-full px-4">
+            <Image
+              src="/images/image 8.png"
+              alt="資料出力イメージ"
+              width={800}
+              height={400}
+              className="w-full h-auto"
+            />
           </div>
         </div>
+
       </div>
     </section>
   )
