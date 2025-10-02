@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 export default function CTASection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -77,40 +78,56 @@ export default function CTASection() {
               </p>
             </div>
 
-            {/* インタラクティブなカード */}
-            <div
-              className="relative inline-block"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <div className="relative group">
-                {/* 背景のパルスエフェクト */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-gradient-blue to-gradient-purple opacity-75 blur-xl group-hover:opacity-100 animate-pulse" />
+            {/* インタラクティブなカード（画面中央） */}
+            <div className="relative inline-block">
+              <div
+                className="relative inline-block"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <div className="relative group">
+                  {/* 背景のパルスエフェクト */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-gradient-purple via-gradient-blue to-gradient-green opacity-75 blur-xl group-hover:opacity-100 animate-pulse" />
 
-                {/* メインボタン */}
-                <button className="relative bg-gradient-to-r from-gradient-blue to-gradient-purple text-white px-12 py-6 rounded-3xl font-bold text-xl shadow-2xl transform transition-all duration-500 hover:scale-110 hover:rotate-1 active:scale-95">
-                  <span className="flex items-center gap-3">
-                    今すぐ無料で始める
-                    <svg
-                      className="w-6 h-6 animate-bounce-x"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </span>
+                  {/* メインボタン */}
+                  <button className="relative bg-gradient-to-br from-gradient-purple via-gradient-blue to-gradient-green text-white px-12 py-6 rounded-3xl font-bold text-xl shadow-2xl transform transition-all duration-500 hover:scale-110 active:scale-95">
+                    <span className="flex items-center gap-3">
+                      今すぐ無料で始める
+                      <svg
+                        className="w-6 h-6 animate-bounce-x"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </span>
 
-                  {/* ホバー時のシャイニーエフェクト */}
-                  <div className="absolute inset-0 rounded-3xl overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                  </div>
-                </button>
+                    {/* ホバー時のシャイニーエフェクト */}
+                    <div className="absolute inset-0 rounded-3xl overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              {/* ノートパソコンの画像（ボタンの右側） */}
+              <div className="absolute left-full top-1/2 -translate-y-1/2 ml-4 hidden lg:block">
+                <div className="relative w-72 h-44 transform hover:scale-105 transition-transform duration-300">
+                  <Image
+                    src="/images/image 10.png"
+                    alt="Loopin on Laptop"
+                    width={288}
+                    height={176}
+                    className="w-full h-full object-contain drop-shadow-2xl"
+                    priority
+                  />
+                </div>
               </div>
             </div>
 
