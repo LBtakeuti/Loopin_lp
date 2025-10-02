@@ -100,6 +100,47 @@ export default function AboutUs() {
 
         {/* 円形配置の循環図 */}
         <div className="relative mx-auto mb-24" style={{ maxWidth: '600px', minHeight: '600px' }}>
+          {/* 循環を示す矢印を背景に配置 */}
+          <div className="absolute inset-0 pointer-events-none">
+            <svg className="w-full h-full" viewBox="0 0 600 600">
+              <defs>
+                <marker
+                  id="arrowhead"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="10"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon
+                    points="0 0, 10 3.5, 0 7"
+                    fill="#6B7280"
+                  />
+                </marker>
+              </defs>
+              {/* 円形の矢印パス */}
+              <path
+                d="M 300 80 A 220 220 0 0 1 490 420 A 220 220 0 0 1 110 420 A 220 220 0 0 1 300 80"
+                fill="none"
+                stroke="#E5E7EB"
+                strokeWidth="2"
+                strokeDasharray="10,5"
+                markerEnd="url(#arrowhead)"
+                opacity="0.8"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  attributeType="XML"
+                  type="rotate"
+                  from="0 300 300"
+                  to="360 300 300"
+                  dur="20s"
+                  repeatCount="indefinite"
+                />
+              </path>
+            </svg>
+          </div>
+
           {/* 背景の円 */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className={`absolute w-full h-full rounded-full border-2 border-gray-200 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
@@ -114,7 +155,6 @@ export default function AboutUs() {
                   height={60}
                   className="mb-2"
                 />
-                <p className="text-sm text-gray-500">無限の循環</p>
               </div>
             </div>
           </div>
@@ -170,55 +210,6 @@ export default function AboutUs() {
             })}
           </div>
 
-          {/* 循環を示す矢印 */}
-          <div className="absolute inset-0 pointer-events-none">
-            <svg className="w-full h-full" viewBox="0 0 600 600">
-              <defs>
-                <marker
-                  id="arrowhead"
-                  markerWidth="10"
-                  markerHeight="7"
-                  refX="10"
-                  refY="3.5"
-                  orient="auto"
-                >
-                  <polygon
-                    points="0 0, 10 3.5, 0 7"
-                    fill="#6B7280"
-                  />
-                </marker>
-              </defs>
-
-              {/* 円形の矢印パス - 背景用 */}
-              <path
-                d="M 300 80 A 220 220 0 0 1 490 420 A 220 220 0 0 1 110 420 A 220 220 0 0 1 300 80"
-                fill="none"
-                stroke="white"
-                strokeWidth="4"
-                opacity="0.8"
-              />
-              {/* 円形の矢印パス - メイン */}
-              <path
-                d="M 300 80 A 220 220 0 0 1 490 420 A 220 220 0 0 1 110 420 A 220 220 0 0 1 300 80"
-                fill="none"
-                stroke="#6B7280"
-                strokeWidth="2"
-                strokeDasharray="10,5"
-                markerEnd="url(#arrowhead)"
-                opacity="0.5"
-              >
-                <animateTransform
-                  attributeName="transform"
-                  attributeType="XML"
-                  type="rotate"
-                  from="0 300 300"
-                  to="360 300 300"
-                  dur="20s"
-                  repeatCount="indefinite"
-                />
-              </path>
-            </svg>
-          </div>
         </div>
 
         {/* 最後のメッセージ */}

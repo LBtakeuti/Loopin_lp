@@ -49,11 +49,7 @@ export default function Features() {
                   <div
                     className="flex items-center justify-center w-14 h-14 rounded-full text-white font-bold text-xl"
                     style={{
-                      background: index === 0 ? 'linear-gradient(135deg, #8a63d2 0%, #8a63d2 100%)' :  // 紫
-                                  index === 1 ? 'linear-gradient(135deg, #8a63d2 0%, #6388d2 100%)' :  // 紫→青
-                                  index === 2 ? 'linear-gradient(135deg, #6388d2 0%, #6388d2 100%)' :  // 青
-                                  index === 3 ? 'linear-gradient(135deg, #6388d2 0%, #63d2af 100%)' :  // 青→緑
-                                  'linear-gradient(135deg, #63d2af 0%, #63d2af 100%)'                   // 緑
+                      background: 'linear-gradient(135deg, #8a63d2 0%, #6388d2 50%, #63d2af 100%)'  // 紫→青→緑
                     }}
                   >
                     {feature.number}
@@ -65,8 +61,13 @@ export default function Features() {
                     {feature.title}
                   </h3>
                   <div className="relative pl-6">
-                    <div className="absolute left-0 top-1 bottom-1 w-1 bg-gradient-to-b from-gradient-blue via-gradient-purple to-gradient-green rounded-full"></div>
-                    <p className="text-xl text-gray-600 leading-relaxed">
+                    <div
+                      className="absolute left-0 top-1 bottom-1 w-1 rounded-full"
+                      style={{
+                        background: 'linear-gradient(180deg, #8a63d2 0%, #6388d2 50%, #63d2af 100%)'  // 紫→青→緑
+                      }}
+                    ></div>
+                    <p className="text-base text-gray-600 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>

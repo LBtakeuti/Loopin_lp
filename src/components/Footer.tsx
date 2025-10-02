@@ -58,8 +58,8 @@ export default function Footer() {
                   className="group"
                   aria-label={social.label}
                 >
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-gradient-blue/10 to-gradient-purple/10 flex items-center justify-center transition-all duration-300 group-hover:from-gradient-blue group-hover:to-gradient-purple">
-                    <social.icon className="w-5 h-5 text-gray-600 transition-colors duration-300 group-hover:text-white" />
+                  <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-all duration-300">
+                    <social.icon className="w-5 h-5 text-gray-600 transition-colors duration-300 group-hover:text-gradient-purple" />
                   </div>
                 </Link>
               ))}
