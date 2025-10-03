@@ -3,6 +3,7 @@ import ServiceOverview from '@/components/ServiceOverview'
 import UseCases from '@/components/UseCases'
 import Features from '@/components/Features'
 import AboutUs from '@/components/AboutUs'
+import PricingPlans from '@/components/PricingPlans'
 import Testimonials from '@/components/Testimonials'
 import CTASection from '@/components/CTASection'
 import Footer from '@/components/Footer'
@@ -15,6 +16,7 @@ export default function Home() {
       <UseCases />
       <Features />
       <AboutUs />
+      <PricingPlans />
       <Testimonials />
       <CTASection />
       <Footer />

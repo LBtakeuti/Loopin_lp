@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 
 export default function CTASection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -116,19 +115,6 @@ export default function CTASection() {
                 </div>
               </div>
 
-              {/* ノートパソコンの画像（ボタンの右側） */}
-              <div className="absolute left-full top-1/2 -translate-y-1/2 ml-4 hidden lg:block">
-                <div className="relative w-72 h-44 transform hover:scale-105 transition-transform duration-300">
-                  <Image
-                    src="/images/image 10.png"
-                    alt="Loopin on Laptop"
-                    width={288}
-                    height={176}
-                    className="w-full h-full object-contain drop-shadow-2xl"
-                    priority
-                  />
-                </div>
-              </div>
             </div>
 
 

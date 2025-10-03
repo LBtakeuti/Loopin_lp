@@ -9,12 +9,12 @@ export default function Header() {
 
   const menuItems = [
     { label: 'TOP', href: '#hero' },
-    { label: 'Loopin\u3068\u306f', href: '#service' },
+    { label: 'Loopinとは', href: '#service' },
     { label: '機能', href: '#features' },
     { label: 'プラン紹介', href: '#pricing' },
     { label: '紹介', href: '#about' },
     { label: 'ユーザーの声', href: '#testimonials' },
-    { label: '無料で始める', href: '#contact', isSpecial: true },
+    { label: '無料で始める', href: '/contact', isSpecial: true },
   ]
 
   return (
@@ -51,7 +51,7 @@ export default function Header() {
               >
                 {item.label}
               </Link>
-            ))}
+            ))
           </nav>
 
           {/* モバイルメニューボタン */}

@@ -18,7 +18,10 @@
       "Bash(git branch:*)",
       "Bash(echo $SHELL)",
       "Bash(npm run build:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(git push:*)",
+      "Bash(cat:*)",
+      "mcp__serena__replace_symbol_body"
     ],
     "deny": [],
     "ask": []

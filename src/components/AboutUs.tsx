@@ -120,7 +120,7 @@ export default function AboutUs() {
               </defs>
               {/* 円形の矢印パス */}
               <path
-                d="M 300 80 A 220 220 0 0 1 490 420 A 220 220 0 0 1 110 420 A 220 220 0 0 1 300 80"
+                d="M 300 120 A 180 180 0 0 1 450 390 A 180 180 0 0 1 150 390 A 180 180 0 0 1 300 120"
                 fill="none"
                 stroke="#E5E7EB"
                 strokeWidth="2"
