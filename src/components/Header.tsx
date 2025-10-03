@@ -51,7 +51,7 @@ export default function Header() {
               >
                 {item.label}
               </Link>
-            ))
+            ))}
           </nav>
 
           {/* モバイルメニューボタン */}
