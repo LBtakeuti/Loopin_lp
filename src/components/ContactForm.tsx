@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import ContactButton from './ContactButton'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -179,19 +180,14 @@ export default function ContactForm() {
                 required
               />
               <span className="text-sm text-gray-600">
-                <a href="#" className="text-gradient-purple hover:underline">個人情報の取り扱い</a>について同意する
+                <a href="/privacy" className="text-gradient-purple hover:underline">個人情報の取り扱い</a>について同意する
               </span>
             </label>
           </div>
 
           {/* 送信ボタン */}
           <div className="text-center">
-            <button
-              type="submit"
-              className="px-12 py-4 bg-gradient-to-r from-gradient-purple via-gradient-blue to-gradient-green text-white font-bold rounded-md shadow-lg hover:opacity-90 transition-opacity duration-200"
-            >
-              送信
-            </button>
+            <ContactButton type="submit">送信</ContactButton>
           </div>
         </form>
       </div>

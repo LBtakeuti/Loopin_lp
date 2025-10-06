@@ -11,7 +11,7 @@ export default function Footer() {
     product: [
       { label: '機能', href: '#features' },
       { label: 'プラン紹介', href: '#pricing' },
-      { label: 'デモを予約', href: '#contact' },
+      { label: 'デモを予約', href: '/contact' },
     ],
     company: [
       { label: 'Loopinとは', href: '#service' },
@@ -20,9 +20,9 @@ export default function Footer() {
     ],
     support: [
       { label: 'ヘルプセンター', href: '#' },
-      { label: 'お問い合わせ', href: '#contact' },
-      { label: 'プライバシーポリシー', href: '#' },
-      { label: '利用規約', href: '#' },
+      { label: 'お問い合わせ', href: '/contact' },
+      { label: 'プライバシーポリシー', href: '/privacy' },
+      { label: '利用規約', href: '/terms' },
     ],
   }
 
@@ -151,10 +151,10 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
             <p>© {currentYear} Loopin. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="#" className="hover:text-gradient-blue transition-colors duration-200">
+              <Link href="/privacy" className="hover:text-gradient-blue transition-colors duration-200">
                 プライバシーポリシー
               </Link>
-              <Link href="#" className="hover:text-gradient-blue transition-colors duration-200">
+              <Link href="/terms" className="hover:text-gradient-blue transition-colors duration-200">
                 利用規約
               </Link>
               <Link href="#" className="hover:text-gradient-blue transition-colors duration-200">

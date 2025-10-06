@@ -1,20 +1,27 @@
 'use client'
 
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
+import ContactButton from './ContactButton'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const isContactPage = pathname === '/contact'
+  const isPrivacyPage = pathname === '/privacy'
+  const isTermsPage = pathname === '/terms'
+  const isOtherPage = isContactPage || isPrivacyPage || isTermsPage
 
   const menuItems = [
-    { label: 'TOP', href: '#hero' },
-    { label: 'Loopinとは', href: '#service' },
-    { label: '機能', href: '#features' },
-    { label: 'プラン紹介', href: '#pricing' },
-    { label: '紹介', href: '#about' },
-    { label: 'ユーザーの声', href: '#testimonials' },
-    { label: '無料で始める', href: '/contact', isSpecial: true },
+    { label: 'TOP', href: isOtherPage ? '/#hero' : '#hero' },
+    { label: 'Loopinとは', href: isOtherPage ? '/#service' : '#service' },
+    { label: '機能', href: isOtherPage ? '/#features' : '#features' },
+    { label: 'プラン紹介', href: isOtherPage ? '/#pricing' : '#pricing' },
+    { label: '紹介', href: isOtherPage ? '/#about' : '#about' },
+    { label: 'ユーザーの声', href: isOtherPage ? '/#testimonials' : '#testimonials' },
+    { label: 'お問い合わせ', href: '/contact', isSpecial: true },
   ]
 
   return (
@@ -23,7 +30,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* ロゴ */}
           <div className="flex-shrink-0">
-            <Link href="#hero" className="block">
+            <Link href={isOtherPage ? '/' : '#hero'} className="block">
               <Image
                 src="/images/Loopin_logoType_light.png"
                 alt="Loopin"
@@ -38,19 +45,17 @@ export default function Header() {
           {/* デスクトップメニュー */}
           <nav className="hidden lg:flex items-center space-x-6">
             {menuItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`text-sm transition-colors duration-200 ${
-                  item.isSpecial
-                    ? item.label === '無料で始める'
-                      ? 'bg-gradient-to-r from-gradient-blue to-gradient-purple text-white px-4 py-2 rounded-lg hover:opacity-90'
-                      : 'text-gradient-blue font-semibold hover:opacity-80'
-                    : 'text-gray-700 hover:text-gradient-blue'
-                }`}
-              >
-                {item.label}
-              </Link>
+              item.isSpecial ? (
+                <ContactButton key={item.label} className="text-sm" />
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-sm transition-colors duration-200 text-gray-700 hover:text-gradient-blue"
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -88,18 +93,20 @@ export default function Header() {
         >
           <nav className="py-4 border-t border-gray-200">
             {menuItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`block py-2 text-sm transition-colors duration-200 ${
-                  item.isSpecial
-                    ? 'text-gradient-blue font-semibold'
-                    : 'text-gray-700'
-                } hover:text-gradient-blue`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
+              item.isSpecial ? (
+                <div key={item.label} className="py-2">
+                  <ContactButton className="text-sm w-full" />
+                </div>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block py-2 text-sm transition-colors duration-200 text-gray-700 hover:text-gradient-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </nav>
         </div>

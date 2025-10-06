@@ -45,11 +45,6 @@ export default function HeroSection() {
           挑戦の循環を、あなたの組織から始めましょう。
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="metal-button px-8 py-4 rounded-2xl text-white font-semibold text-lg shadow-xl hover:shadow-gradient-blue/30 hover:scale-105 transform transition-all duration-300">
-            <span className="relative z-10">無料で始める</span>
-          </button>
-        </div>
       </div>
       
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
