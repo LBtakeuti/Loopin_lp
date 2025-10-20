@@ -1,5 +1,6 @@
 import HeroSection from '@/components/HeroSection'
 import ServiceOverview from '@/components/ServiceOverview'
+import CycleSection from '@/components/CycleSection'
 import UseCases from '@/components/UseCases'
 import Features from '@/components/Features'
 import AboutUs from '@/components/AboutUs'
@@ -13,6 +14,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <HeroSection />
       <ServiceOverview />
+      <CycleSection />
       <UseCases />
       <Features />
       <AboutUs />

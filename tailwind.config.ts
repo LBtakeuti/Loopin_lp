@@ -15,6 +15,11 @@ const config: Config = {
         'metal-dark': '#ffffff',
         'metal-light': '#f9f9f9',
         'metal-accent': '#f0f0f0',
+        background: '#ffffff',
+        primary: {
+          DEFAULT: '#8b5cf6',
+          foreground: '#ffffff',
+        },
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #3b82f6, #10b981, #8b5cf6)',

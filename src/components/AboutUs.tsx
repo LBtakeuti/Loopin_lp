@@ -5,9 +5,17 @@ import Image from 'next/image'
 
 export default function AboutUs() {
   const [isVisible, setIsVisible] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
     setIsVisible(true)
+
+    // 循環アニメーション: 各要素を順番に強調（7.5秒で1周、各要素は2.5秒）
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % 3)
+    }, 2500)
+
+    return () => clearInterval(interval)
   }, [])
 
   const cycles = [
@@ -15,79 +23,34 @@ export default function AboutUs() {
       title: '思考',
       subtitle: 'Think',
       description: 'アイデアを論理的に整理し、事業構想を深める',
-      color: 'from-blue-400 to-blue-600',
-      borderColor: 'border-blue-500',
+      bgColor: 'bg-blue-50',
       textColor: 'text-blue-600',
-      position: 'top-0 left-1/2 -translate-x-1/2',
+      borderColor: 'border-blue-200',
       delay: 'delay-100',
     },
     {
       title: '実践',
       subtitle: 'Practice',
       description: '事業計画を形にして、実際に行動に移す',
-      color: 'from-purple-400 to-purple-600',
-      borderColor: 'border-purple-500',
+      bgColor: 'bg-purple-50',
       textColor: 'text-purple-600',
-      position: 'bottom-0 right-0',
+      borderColor: 'border-purple-200',
       delay: 'delay-200',
     },
     {
       title: '結果',
       subtitle: 'Result',
       description: '成果を評価し、次の改善へつなげる',
-      color: 'from-green-400 to-green-600',
-      borderColor: 'border-green-500',
+      bgColor: 'bg-green-50',
       textColor: 'text-green-600',
-      position: 'bottom-0 left-0',
+      borderColor: 'border-green-200',
       delay: 'delay-300',
     },
   ]
 
   return (
-    <section id="about" className="py-24 section-padding relative bg-gradient-to-b from-white via-gray-50/50 to-white">
+    <section id="about" className="py-24 section-padding relative bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* タイトル部分 */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight">
-            <span className="bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-              未来を磨く
-            </span>
-          </h2>
-        </div>
-
-        {/* ストーリー部分 */}
-        <div className="mb-24">
-          <div className="max-w-3xl mx-auto space-y-8">
-            <p className="text-xl text-gray-600 text-center leading-relaxed">
-              私たちがLoopinをつくるきっかけになったのは、<br />
-              企業リアリティーショー<span className="font-bold text-gray-800 mx-1">「Nontitle」</span>への参加でした。
-            </p>
-
-            <p className="text-lg text-gray-500 text-center">
-              短期間で新規事業を形にする挑戦の中、質の高い事業案をまとめきれず、<br />
-              悔しさと課題感を強く感じました。
-            </p>
-
-            <div className="py-12 relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200"></div>
-              </div>
-              <div className="relative flex justify-center">
-                <span className="bg-white px-8 py-4 rounded-full shadow-lg">
-                  <p className="text-2xl font-bold text-gray-800 text-center">
-                    「もっと効率的に、もっと循環的に<br />
-                    事業を磨ける仕組みが必要だ」
-                  </p>
-                </span>
-              </div>
-            </div>
-
-            <p className="text-lg text-gray-600 text-center">
-              ――その気づきが、Loopinの出発点です。
-            </p>
-          </div>
-        </div>
-
         {/* 循環サイクルのタイトル */}
         <div className="text-center mb-16">
           <h3 className="text-3xl font-bold text-gray-800 mb-4">
@@ -104,58 +67,158 @@ export default function AboutUs() {
           <div className="absolute inset-0 pointer-events-none">
             <svg className="w-full h-full" viewBox="0 0 600 600">
               <defs>
+                {/* 矢印マーカー - より大きく目立つように */}
                 <marker
-                  id="arrowhead"
-                  markerWidth="10"
-                  markerHeight="7"
-                  refX="10"
-                  refY="3.5"
+                  id="arrowhead-blue"
+                  markerWidth="12"
+                  markerHeight="12"
+                  refX="11"
+                  refY="6"
                   orient="auto"
                 >
                   <polygon
-                    points="0 0, 10 3.5, 0 7"
-                    fill="#6B7280"
+                    points="0 0, 12 6, 0 12"
+                    fill="#3B82F6"
                   />
                 </marker>
+
+                <marker
+                  id="arrowhead-purple"
+                  markerWidth="12"
+                  markerHeight="12"
+                  refX="11"
+                  refY="6"
+                  orient="auto"
+                >
+                  <polygon
+                    points="0 0, 12 6, 0 12"
+                    fill="#8B5CF6"
+                  />
+                </marker>
+
+                <marker
+                  id="arrowhead-green"
+                  markerWidth="12"
+                  markerHeight="12"
+                  refX="11"
+                  refY="6"
+                  orient="auto"
+                >
+                  <polygon
+                    points="0 0, 12 6, 0 12"
+                    fill="#10B981"
+                  />
+                </marker>
+
+                {/* グラデーション定義 */}
+                <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#3B82F6" stopOpacity="1" />
+                </linearGradient>
+
+                <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#8B5CF6" stopOpacity="1" />
+                </linearGradient>
+
+                <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#10B981" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#10B981" stopOpacity="1" />
+                </linearGradient>
               </defs>
-              {/* 円形の矢印パス */}
+
+              {/* ベースの円形パス（薄いグレー） */}
               <path
                 d="M 300 120 A 180 180 0 0 1 450 390 A 180 180 0 0 1 150 390 A 180 180 0 0 1 300 120"
                 fill="none"
                 stroke="#E5E7EB"
                 strokeWidth="2"
-                strokeDasharray="10,5"
-                markerEnd="url(#arrowhead)"
-                opacity="0.8"
+                opacity="0.3"
+              />
+
+              {/* 思考 → 実践 (青) */}
+              <path
+                d="M 300 120 A 180 180 0 0 1 450 390"
+                fill="none"
+                stroke="url(#blueGradient)"
+                strokeWidth="3"
+                strokeDasharray="400"
+                strokeDashoffset="400"
+                markerEnd="url(#arrowhead-blue)"
               >
-                <animateTransform
-                  attributeName="transform"
-                  attributeType="XML"
-                  type="rotate"
-                  from="0 300 300"
-                  to="360 300 300"
-                  dur="20s"
+                <animate
+                  attributeName="stroke-dashoffset"
+                  values="400;0;0;0;0;0;400;400"
+                  dur="7.5s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  values="0;1;1;0.3;0.3;0.3;0.3;0"
+                  dur="7.5s"
+                  repeatCount="indefinite"
+                />
+              </path>
+
+              {/* 実践 → 結果 (紫) */}
+              <path
+                d="M 450 390 A 180 180 0 0 1 150 390"
+                fill="none"
+                stroke="url(#purpleGradient)"
+                strokeWidth="3"
+                strokeDasharray="400"
+                strokeDashoffset="400"
+                markerEnd="url(#arrowhead-purple)"
+              >
+                <animate
+                  attributeName="stroke-dashoffset"
+                  values="400;400;400;0;0;0;400;400"
+                  dur="7.5s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  values="0;0;0.3;1;1;0.3;0.3;0"
+                  dur="7.5s"
+                  repeatCount="indefinite"
+                />
+              </path>
+
+              {/* 結果 → 思考 (緑) */}
+              <path
+                d="M 150 390 A 180 180 0 0 1 300 120"
+                fill="none"
+                stroke="url(#greenGradient)"
+                strokeWidth="3"
+                strokeDasharray="400"
+                strokeDashoffset="400"
+                markerEnd="url(#arrowhead-green)"
+              >
+                <animate
+                  attributeName="stroke-dashoffset"
+                  values="400;400;400;400;400;0;0;400"
+                  dur="7.5s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  values="0;0;0;0;0.3;1;1;0"
+                  dur="7.5s"
                   repeatCount="indefinite"
                 />
               </path>
             </svg>
           </div>
 
-          {/* 背景の円 */}
+          {/* 中央のロゴ */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className={`absolute w-full h-full rounded-full border-2 border-gray-200 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}></div>
-
-            {/* 中央のロゴ */}
-            <div className="absolute flex items-center justify-center">
-              <div className="text-center">
-                <Image
-                  src="/images/Loopin_symbolMarc.png"
-                  alt="Loopin Symbol"
-                  width={120}
-                  height={60}
-                  className="mb-2"
-                />
-              </div>
+            <div className="text-center">
+              <Image
+                src="/images/Loopin_symbolMarc.png"
+                alt="Loopin Symbol"
+                width={100}
+                height={50}
+              />
             </div>
           </div>
 
@@ -166,6 +229,7 @@ export default function AboutUs() {
               const radius = 220; // 円の半径
               const x = Math.cos(angle * Math.PI / 180) * radius;
               const y = Math.sin(angle * Math.PI / 180) * radius;
+              const isActive = activeIndex === index;
 
               return (
                 <div
@@ -180,26 +244,35 @@ export default function AboutUs() {
                   }}
                 >
                   <div className="relative">
-                    {/* 背景のグロウ効果 */}
-                    <div className={`absolute -inset-4 bg-gradient-to-br ${cycle.color} rounded-full blur-xl opacity-20`}></div>
+                    {/* パルスエフェクト（アクティブ時） */}
+                    {isActive && (
+                      <div className={`absolute inset-0 rounded-full ${cycle.bgColor} opacity-75 animate-ping`}></div>
+                    )}
+
+                    {/* グロウエフェクト（アクティブ時） */}
+                    {isActive && (
+                      <div className={`absolute -inset-2 rounded-full bg-gradient-to-r ${cycle.borderColor.replace('border-', 'from-')} to-transparent blur-md opacity-60`}></div>
+                    )}
 
                     {/* メインの円 */}
-                    <div className={`relative w-40 h-40 rounded-full bg-gradient-to-br ${cycle.color} p-1 shadow-2xl hover:scale-110 transition-transform cursor-pointer`}>
-                      <div className="w-full h-full rounded-full flex flex-col items-center justify-center p-4" style={{ backgroundColor: '#FFFFFF', opacity: 1 }}>
-                        <div className={`text-5xl font-bold ${cycle.textColor} mb-2`}>
+                    <div className={`relative w-36 h-36 rounded-full ${cycle.bgColor} border-2 ${cycle.borderColor}
+                      transition-all duration-500 cursor-pointer
+                      ${isActive ? 'scale-110 shadow-2xl' : 'hover:scale-105 shadow-md'}`}>
+                      <div className="w-full h-full rounded-full flex flex-col items-center justify-center p-4">
+                        <div className={`text-4xl font-bold ${cycle.textColor} mb-1 transition-transform duration-500 ${isActive ? 'scale-110' : ''}`}>
                           {String(index + 1).padStart(2, '0')}
                         </div>
-                        <h4 className="text-xl font-bold text-gray-800 mb-1">
+                        <h4 className={`text-lg font-bold text-gray-800 mb-0.5 transition-all duration-500 ${isActive ? 'scale-105' : ''}`}>
                           {cycle.title}
                         </h4>
-                        <p className="text-xs text-gray-500 uppercase tracking-wider">
+                        <p className="text-xs text-gray-500 uppercase tracking-wide">
                           {cycle.subtitle}
                         </p>
                       </div>
                     </div>
 
                     {/* 説明文 */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-48">
+                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-48 transition-all duration-500 ${isActive ? 'opacity-100 scale-105' : 'opacity-70'}`}>
                       <p className="text-sm text-gray-600 text-center">
                         {cycle.description}
                       </p>
@@ -214,12 +287,12 @@ export default function AboutUs() {
 
         {/* 最後のメッセージ */}
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="p-8 rounded-2xl bg-gradient-to-r from-gray-50 to-white border border-gray-100 shadow-xl">
+          <div className="p-10 rounded-2xl bg-gray-50 border border-gray-200">
             <p className="text-xl text-gray-600 mb-6">
               私たちは、個人の挑戦が企業を強くし、<br />
               企業の成果が日本全体を豊かにすると信じています。
             </p>
-            <p className="text-3xl font-bold bg-gradient-to-r from-gradient-blue via-gradient-purple to-gradient-green bg-clip-text text-transparent">
+            <p className="text-2xl font-bold text-gray-800">
               Loopinは、その挑戦の循環を支える<br />
               伴走者でありたいと考えています。
             </p>

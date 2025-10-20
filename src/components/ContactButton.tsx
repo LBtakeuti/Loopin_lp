@@ -20,15 +20,29 @@ export default function ContactButton({
 }: ContactButtonProps) {
   const baseClasses = `
     inline-block px-8 py-3 rounded-lg font-medium text-white
-    bg-gradient-to-r from-purple-500 via-blue-500 to-teal-400
-    hover:from-purple-600 hover:via-blue-600 hover:to-teal-500
+    bg-blue-600 hover:bg-blue-700
     transform transition-all duration-300 hover:scale-105
     shadow-lg hover:shadow-xl
     disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
     ${className}
   `.trim();
 
-  if (href && !onClick) {
+  // type="submit" または onClick が指定されている場合は button として描画
+  if (type === 'submit' || type === 'reset' || onClick) {
+    return (
+      <button
+        type={type}
+        onClick={onClick}
+        disabled={disabled}
+        className={baseClasses}
+      >
+        {children}
+      </button>
+    );
+  }
+
+  // href が指定されている場合は Link として描画
+  if (href) {
     return (
       <Link href={href} className={baseClasses}>
         {children}
@@ -36,6 +50,7 @@ export default function ContactButton({
     );
   }
 
+  // デフォルトは button
   return (
     <button
       type={type}

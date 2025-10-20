@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import ContactButton from './ContactButton'
+import SuccessModal from './SuccessModal'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,11 @@ export default function ContactForm() {
     agreement: false,
   })
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
     setFormData(prev => ({
@@ -24,10 +30,59 @@ export default function ContactForm() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // フォーム送信処理
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
+
+    try {
+      console.log('Submitting form data:', formData)
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      console.log('Response status:', response.status)
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        console.error('Response error:', errorData)
+        throw new Error(errorData.error || '送信に失敗しました')
+      }
+
+      // 成功時の処理
+      setSubmitStatus('success')
+      setShowSuccessModal(true)
+
+      // フォームをリセット
+      setFormData({
+        inquiryType: '',
+        companyName: '',
+        position: '',
+        lastName: '',
+        firstName: '',
+        email: '',
+        phone: '',
+        message: '',
+        agreement: false,
+      })
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitStatus('error')
+      setErrorMessage(error instanceof Error ? error.message : '送信に失敗しました。もう一度お試しください。')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const handleCloseModal = () => {
+    setShowSuccessModal(false)
+    setSubmitStatus('idle')
   }
 
   return (
@@ -90,6 +145,7 @@ export default function ContactForm() {
               value={formData.position}
               onChange={handleChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gradient-purple focus:border-transparent"
+              placeholder="例：マネージャー"
             />
           </div>
 
@@ -139,10 +195,10 @@ export default function ContactForm() {
             />
           </div>
 
-          {/* 電話番号 */}
+          {/* 電話番号（任意） */}
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2">
-              電話番号
+              電話番号（任意）
             </label>
             <input
               type="tel"
@@ -150,14 +206,14 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gradient-purple focus:border-transparent"
-              required
+              placeholder="例：03-1234-5678"
             />
           </div>
 
-          {/* お問い合わせの内容（任意） */}
+          {/* お問い合わせの内容 */}
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2">
-              お問い合わせの内容（任意）
+              お問い合わせの内容
             </label>
             <textarea
               name="message"
@@ -165,6 +221,8 @@ export default function ContactForm() {
               onChange={handleChange}
               rows={6}
               className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gradient-purple focus:border-transparent resize-none"
+              placeholder="お問い合わせ内容をご記入ください"
+              required
             />
           </div>
 
@@ -185,11 +243,25 @@ export default function ContactForm() {
             </label>
           </div>
 
+          {/* エラーメッセージ */}
+          {submitStatus === 'error' && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
+              <p className="text-red-800 text-sm">
+                ✗ {errorMessage}
+              </p>
+            </div>
+          )}
+
           {/* 送信ボタン */}
           <div className="text-center">
-            <ContactButton type="submit">送信</ContactButton>
+            <ContactButton type="submit" disabled={isSubmitting}>
+              {isSubmitting ? '送信中...' : '送信'}
+            </ContactButton>
           </div>
         </form>
+
+        {/* 成功モーダル */}
+        <SuccessModal isOpen={showSuccessModal} onClose={handleCloseModal} />
       </div>
     </section>
   )
