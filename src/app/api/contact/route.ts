@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
     console.log('Slack webhook URL is configured, preparing message...')
 
     // Slackメッセージのフォーマット
-    const slackMessage = {
+    const slackMessage: any = {
       text: '🔔 新しいお問い合わせが届きました',
       blocks: [
         {
