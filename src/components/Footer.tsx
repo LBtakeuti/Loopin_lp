@@ -9,17 +9,16 @@ export default function Footer() {
 
   const footerLinks = {
     product: [
-      { label: '機能', href: '#features' },
-      { label: 'プラン紹介', href: '#pricing' },
+      { label: '機能', href: '/#features' },
+      { label: 'プラン紹介', href: '/#pricing' },
       { label: 'デモを予約', href: '/contact' },
     ],
     company: [
-      { label: 'Loopinとは', href: '#service' },
-      { label: '私たちについて', href: '#about' },
-      { label: 'ユーザーの声', href: '#testimonials' },
+      { label: 'Loopinとは', href: '/#service' },
+      { label: '私たちについて', href: '/#about' },
+      { label: 'ユーザーの声', href: '/#testimonials' },
     ],
     support: [
-      { label: 'ヘルプセンター', href: '#' },
       { label: 'お問い合わせ', href: '/contact' },
       { label: 'プライバシーポリシー', href: '/privacy' },
       { label: '利用規約', href: '/terms' },

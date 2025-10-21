@@ -14,15 +14,20 @@ export const metadata: Metadata = {
   title: 'Loopin - 循環の中で、事業は磨かれる',
   description: '小さな試行錯誤が積み重なり、やがて大きな成長を生む。Loopinは、新規事業を推進するための"挑戦の循環"を支援するプラットフォームです。',
   keywords: '新規事業,事業計画,スタートアップ,ビジネスプラン,AI,循環',
+  icons: {
+    icon: '/images/Loopin_favicon.png',
+    shortcut: '/images/Loopin_favicon.png',
+    apple: '/images/Loopin_favicon.png',
+  },
   openGraph: {
     title: 'Loopin - 循環の中で、事業は磨かれる',
     description: '新規事業を推進するための"挑戦の循環"を支援するプラットフォーム',
     type: 'website',
     images: [
       {
-        url: '/images/Loopin_logoType_light.png',
+        url: '/images/Loopin_favicon.png',
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: 'Loopin',
       },
     ],
@@ -31,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Loopin - 循環の中で、事業は磨かれる',
     description: '新規事業を推進するための"挑戦の循環"を支援するプラットフォーム',
-    images: ['/images/Loopin_logoType_light.png'],
+    images: ['/images/Loopin_favicon.png'],
   },
 }
 
