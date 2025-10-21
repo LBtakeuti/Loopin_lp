@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from 'react-icons/fa'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -25,12 +24,6 @@ export default function Footer() {
     ],
   }
 
-  const socialLinks = [
-    { icon: FaTwitter, href: '#', label: 'Twitter' },
-    { icon: FaLinkedin, href: '#', label: 'LinkedIn' },
-    { icon: FaInstagram, href: '#', label: 'Instagram' },
-    { icon: FaYoutube, href: '#', label: 'YouTube' },
-  ]
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-50 to-white border-t border-gray-100">
@@ -48,21 +41,6 @@ export default function Footer() {
                 className="h-10 w-auto"
               />
             </Link>
-            {/* ソーシャルリンク */}
-            <div className="flex space-x-4 mt-6">
-              {socialLinks.map((social) => (
-                <Link
-                  key={social.label}
-                  href={social.href}
-                  className="group"
-                  aria-label={social.label}
-                >
-                  <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center transition-all duration-300">
-                    <social.icon className="w-5 h-5 text-gray-600 transition-colors duration-300 group-hover:text-gradient-purple" />
-                  </div>
-                </Link>
-              ))}
-            </div>
           </div>
 
           {/* プロダクトリンク */}
