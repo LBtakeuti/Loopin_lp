@@ -19,7 +19,6 @@ export default function Header() {
     { label: 'Loopinとは', href: isOtherPage ? '/#service' : '#service' },
     { label: '機能', href: isOtherPage ? '/#features' : '#features' },
     { label: 'プラン紹介', href: isOtherPage ? '/#pricing' : '#pricing' },
-    { label: '紹介', href: isOtherPage ? '/#about' : '#about' },
     { label: 'ユーザーの声', href: isOtherPage ? '/#testimonials' : '#testimonials' },
     { label: 'お問い合わせ', href: '/contact', isSpecial: true },
   ]
