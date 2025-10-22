@@ -1,20 +1,22 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { AuroraBackground } from '@/components/ui/aurora-background'
 
 export default function HeroSection() {
-  const [isLoaded, setIsLoaded] = useState(false)
-
-  useEffect(() => {
-    setIsLoaded(true)
-  }, [])
-
   return (
     <AuroraBackground className="relative min-h-screen" showRadialGradient={false}>
-      
-      <div className={`relative z-10 text-center section-padding py-20 max-w-6xl mx-auto transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <motion.div
+        initial={{ opacity: 0.0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="relative z-10 text-center section-padding py-20 max-w-6xl mx-auto"
+      >
         <div className="mb-12 flex justify-center">
           <Image
             src="/images/Loopin_logoType_light.png"
@@ -44,8 +46,7 @@ export default function HeroSection() {
           個人の発想から、企業の挑戦、そして社会全体の進化へ。<br />
           挑戦の循環を、あなたの組織から始めましょう。
         </p>
-        
-      </div>
+      </motion.div>
       
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 rounded-full border-2 border-gray-400 flex justify-center p-2">
