@@ -61,10 +61,12 @@ export default function AboutUs() {
           </p>
         </div>
 
-        {/* 円形配置の循環図 */}
-        <div className="relative mx-auto mb-24" style={{ maxWidth: '600px', minHeight: '600px' }}>
-          {/* 循環を示す矢印を背景に配置 */}
-          <div className="absolute inset-0 pointer-events-none">
+        {/* 循環図とメッセージを横並びに配置 */}
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          {/* 円形配置の循環図 */}
+          <div className="relative flex-shrink-0" style={{ width: '600px', height: '600px', maxWidth: '100%' }}>
+            {/* 循環を示す矢印を背景に配置 */}
+            <div className="absolute inset-0 pointer-events-none">
             <svg className="w-full h-full" viewBox="0 0 600 600">
               <defs>
                 {/* 矢印マーカー - より大きく目立つように */}
@@ -282,20 +284,20 @@ export default function AboutUs() {
               );
             })}
           </div>
+          </div>
 
-        </div>
-
-        {/* 最後のメッセージ */}
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="p-10 rounded-2xl bg-gray-50 border border-gray-200">
-            <p className="text-xl text-gray-600 mb-6">
-              私たちは、個人の挑戦が企業を強くし、<br />
-              企業の成果が日本全体を豊かにすると信じています。
-            </p>
-            <p className="text-2xl font-bold text-gray-800">
-              Loopinは、その挑戦の循環を支える<br />
-              伴走者でありたいと考えています。
-            </p>
+          {/* 最後のメッセージ */}
+          <div className="flex-1 flex items-center">
+            <div className="w-full space-y-8">
+              <p className="text-xl text-gray-600 leading-relaxed pb-6 border-b-2 border-gray-200">
+                私たちは、個人の挑戦が企業を強くし、<br />
+                企業の成果が日本全体を豊かにすると信じています。
+              </p>
+              <p className="text-2xl font-bold text-gray-800 leading-relaxed pb-6 border-b-4 border-gradient-to-r from-gradient-blue via-gradient-purple to-gradient-green" style={{ borderImage: 'linear-gradient(to right, #3b82f6, #8b5cf6, #10b981) 1' }}>
+                Loopinは、その挑戦の循環を支える<br />
+                伴走者でありたいと考えています。
+              </p>
+            </div>
           </div>
         </div>
       </div>

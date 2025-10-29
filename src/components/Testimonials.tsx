@@ -9,8 +9,8 @@ export default function Testimonials() {
     },
     {
       quote: 'シード資金調達の際、Loopinで作成した事業計画書とPL表が投資家から「極めて論理的で現実的」と評価されました。特に3年分の財務予測が自動生成され、複数のシナリオ分析もできたため、投資家の質問にも数値根拠を持って即座に回答できました。結果的に目標額の1.5倍の資金調達に成功しました。',
-      author: '吉田　優希',
-      role: '株式会社GovLet CEO',
+      author: '30代　女性',
+      role: 'システム開発会社　CEO',
       company: 'スタートアップ',
       gradient: 'from-gradient-purple to-gradient-green',
     },
@@ -52,12 +52,6 @@ export default function Testimonials() {
               </div>
             </div>
           ))}
-        </div>
-        
-        <div className="mt-12 text-center">
-          <p className="text-gray-600 text-sm">
-            ※ 想定事例に基づく効果イメージです
-          </p>
         </div>
       </div>
     </section>

@@ -1,6 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
-import ContactButton from '@/components/ContactButton'
 
 export default function NotFound() {
   return (
@@ -27,19 +25,6 @@ export default function NotFound() {
           <br />
           URLをご確認いただくか、トップページからお探しください。
         </p>
-
-        {/* アクションボタン */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link
-            href="/"
-            className="inline-block px-8 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-gradient-blue to-gradient-purple hover:opacity-90 transform transition-all duration-300 hover:scale-105 shadow-lg"
-          >
-            トップページへ
-          </Link>
-          <ContactButton className="bg-gray-100 text-gray-900 hover:bg-gray-200">
-            お問い合わせ
-          </ContactButton>
-        </div>
       </div>
     </div>
   )
