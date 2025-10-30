@@ -64,7 +64,7 @@ export default function ServiceOverview() {
   return (
     <section id="service" className="py-24 section-padding relative">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-16 py-6 md:py-8 px-4">
+        <div className="text-center mb-[72px] py-6 md:py-8 px-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-serif">
             <span className="text-gray-900">Loopinとは</span>
           </h2>
@@ -80,7 +80,7 @@ export default function ServiceOverview() {
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-8 md:mb-12 px-4">
             <div className="flex-1 text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-serif text-gray-900">
-                こんな課題、ありませんか？
+                Loopinがあなたの課題を解決します
               </h3>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
                 新規事業の立ち上げには、多くの障壁があります。<br className="hidden sm:block" />
@@ -130,6 +130,20 @@ export default function ServiceOverview() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* サービス概要セクション */}
+        <div className="mb-12 md:mb-16">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 font-serif text-gray-900 flex items-center justify-center gap-3 px-4">
+            <Image
+              src="/images/Loopin_logoType_light.png"
+              alt="Loopin"
+              width={180}
+              height={48}
+              className="inline-block"
+            />
+            <span>で出来ること</span>
+          </h3>
         </div>
 
         <div className="space-y-12 md:space-y-20 px-4">
