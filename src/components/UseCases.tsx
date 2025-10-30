@@ -29,20 +29,20 @@ export default function UseCases() {
   ]
   
   return (
-    <section className="py-24 section-padding relative">
+    <section className="py-12 md:py-24 px-4 md:px-8 lg:px-16 xl:px-32 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-serif">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-serif">
             <span className="text-gray-900">多様なシーンで</span>
             <span className="text-gray-800 block">"使える"アウトプットを</span>
           </h2>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 gap-y-8 md:gap-y-10">
           {cases.map((useCase, index) => (
             <div
               key={index}
-              className="group flex items-start gap-4"
+              className="group flex items-start gap-3 md:gap-4"
             >
               <div className="flex-shrink-0">
                 <Image
@@ -50,14 +50,14 @@ export default function UseCases() {
                   alt={useCase.title}
                   width={48}
                   height={48}
-                  className="opacity-80"
+                  className="opacity-80 w-10 h-10 md:w-12 md:h-12"
                 />
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 font-serif">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 md:mb-3 font-serif">
                   {useCase.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed pb-6 border-b border-gray-200">
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed pb-4 md:pb-6 border-b border-gray-200">
                   {useCase.description}
                 </p>
               </div>

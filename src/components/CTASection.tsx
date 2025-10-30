@@ -29,7 +29,7 @@ export default function CTASection() {
   ]
 
   return (
-    <section id="cta-section" className="py-24 section-padding relative overflow-hidden">
+    <section id="cta-section" className="py-12 md:py-24 px-4 md:px-8 lg:px-16 xl:px-32 relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative">
         {/* 動的な背景 */}
         <div className="absolute inset-0 -z-10">
@@ -65,22 +65,22 @@ export default function CTASection() {
 
         <div className="relative">
           {/* メインコンテンツ */}
-          <div className="text-center space-y-8">
+          <div className="text-center space-y-6 md:space-y-8">
             {/* アニメーションするテキスト */}
             <div className="space-y-2">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold">
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gradient-blue via-gradient-purple to-gradient-blue bg-300% animate-gradient">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gradient-blue via-gradient-purple to-gradient-blue bg-300% animate-gradient whitespace-nowrap">
                   革新は、ここから
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-600 font-light">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 font-light">
                 アイデアを形に、夢を現実に
               </p>
             </div>
 
             {/* インタラクティブなカード（画面中央） */}
             <div className="relative inline-block">
-              <ContactButton className="text-xl px-12 py-6" /></div>
+              <ContactButton className="text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6" /></div>
 
 
           </div>

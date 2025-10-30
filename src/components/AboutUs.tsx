@@ -49,22 +49,22 @@ export default function AboutUs() {
   ]
 
   return (
-    <section id="about" className="py-24 section-padding relative bg-white">
+    <section id="about" className="py-12 md:py-24 px-4 md:px-8 lg:px-16 xl:px-32 relative bg-white">
       <div className="max-w-7xl mx-auto">
         {/* 循環サイクルのタイトル */}
-        <div className="text-center mb-16">
-          <h3 className="text-3xl font-bold text-gray-800 mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
             Loopinが実現する循環サイクル
           </h3>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             思考・実践・結果の継続的な循環により、事業を磨き続けます
           </p>
         </div>
 
         {/* 循環図とメッセージを横並びに配置 */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16">
           {/* 円形配置の循環図 */}
-          <div className="relative flex-shrink-0" style={{ width: '600px', height: '600px', maxWidth: '100%' }}>
+          <div className="relative flex-shrink-0 w-full max-w-[350px] sm:max-w-[450px] md:max-w-[500px] lg:max-w-[600px]" style={{ aspectRatio: '1/1' }}>
             {/* 循環を示す矢印を背景に配置 */}
             <div className="absolute inset-0 pointer-events-none">
             <svg className="w-full h-full" viewBox="0 0 600 600">
@@ -220,6 +220,7 @@ export default function AboutUs() {
                 alt="Loopin Symbol"
                 width={100}
                 height={50}
+                className="w-16 sm:w-20 md:w-24 lg:w-28 h-auto"
               />
             </div>
           </div>
@@ -228,7 +229,14 @@ export default function AboutUs() {
           <div className="absolute inset-0">
             {cycles.map((cycle, index) => {
               const angle = (index * 120) - 90; // 上から始まって120度ずつ
-              const radius = 220; // 円の半径
+              // レスポンシブな半径: モバイル130px, sm 150px, md 180px, lg 220px
+              const baseRadius = typeof window !== 'undefined'
+                ? window.innerWidth < 640 ? 130
+                  : window.innerWidth < 768 ? 150
+                  : window.innerWidth < 1024 ? 180
+                  : 220
+                : 220;
+              const radius = baseRadius;
               const x = Math.cos(angle * Math.PI / 180) * radius;
               const y = Math.sin(angle * Math.PI / 180) * radius;
               const isActive = activeIndex === index;
@@ -253,29 +261,29 @@ export default function AboutUs() {
 
                     {/* グロウエフェクト（アクティブ時） */}
                     {isActive && (
-                      <div className={`absolute -inset-2 rounded-full bg-gradient-to-r ${cycle.borderColor.replace('border-', 'from-')} to-transparent blur-md opacity-60`}></div>
+                      <div className={`absolute -inset-1 sm:-inset-2 rounded-full bg-gradient-to-r ${cycle.borderColor.replace('border-', 'from-')} to-transparent blur-md opacity-60`}></div>
                     )}
 
                     {/* メインの円 */}
-                    <div className={`relative w-36 h-36 rounded-full ${cycle.bgColor} border-2 ${cycle.borderColor}
+                    <div className={`relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full ${cycle.bgColor} border-2 ${cycle.borderColor}
                       transition-all duration-500 cursor-pointer
                       ${isActive ? 'scale-110 shadow-2xl' : 'hover:scale-105 shadow-md'}`}>
-                      <div className="w-full h-full rounded-full flex flex-col items-center justify-center p-4">
-                        <div className={`text-4xl font-bold ${cycle.textColor} mb-1 transition-transform duration-500 ${isActive ? 'scale-110' : ''}`}>
+                      <div className="w-full h-full rounded-full flex flex-col items-center justify-center p-2 sm:p-3 md:p-4">
+                        <div className={`text-2xl sm:text-3xl md:text-4xl font-bold ${cycle.textColor} mb-0.5 sm:mb-1 transition-transform duration-500 ${isActive ? 'scale-110' : ''}`}>
                           {String(index + 1).padStart(2, '0')}
                         </div>
-                        <h4 className={`text-lg font-bold text-gray-800 mb-0.5 transition-all duration-500 ${isActive ? 'scale-105' : ''}`}>
+                        <h4 className={`text-sm sm:text-base md:text-lg font-bold text-gray-800 mb-0.5 transition-all duration-500 ${isActive ? 'scale-105' : ''}`}>
                           {cycle.title}
                         </h4>
-                        <p className="text-xs text-gray-500 uppercase tracking-wide">
+                        <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wide">
                           {cycle.subtitle}
                         </p>
                       </div>
                     </div>
 
                     {/* 説明文 */}
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-48 transition-all duration-500 ${isActive ? 'opacity-100 scale-105' : 'opacity-70'}`}>
-                      <p className="text-sm text-gray-600 text-center">
+                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 sm:mt-3 md:mt-4 w-32 sm:w-40 md:w-48 transition-all duration-500 ${isActive ? 'opacity-100 scale-105' : 'opacity-70'}`}>
+                      <p className="text-xs sm:text-sm text-gray-600 text-center">
                         {cycle.description}
                       </p>
                     </div>
@@ -287,13 +295,13 @@ export default function AboutUs() {
           </div>
 
           {/* 最後のメッセージ */}
-          <div className="flex-1 flex items-center">
-            <div className="w-full space-y-8">
-              <p className="text-xl text-gray-600 leading-relaxed pb-6 border-b-2 border-gray-200">
+          <div className="flex-1 flex items-center mt-8 lg:mt-0">
+            <div className="w-full space-y-6 md:space-y-8">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed pb-4 md:pb-6 border-b-2 border-gray-200">
                 私たちは、個人の挑戦が企業を強くし、<br />
                 企業の成果が日本全体を豊かにすると信じています。
               </p>
-              <p className="text-2xl font-bold text-gray-800 leading-relaxed pb-6 border-b-4 border-gradient-to-r from-gradient-blue via-gradient-purple to-gradient-green" style={{ borderImage: 'linear-gradient(to right, #3b82f6, #8b5cf6, #10b981) 1' }}>
+              <p className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 leading-relaxed pb-4 md:pb-6 border-b-4 border-gradient-to-r from-gradient-blue via-gradient-purple to-gradient-green" style={{ borderImage: 'linear-gradient(to right, #3b82f6, #8b5cf6, #10b981) 1' }}>
                 Loopinは、その挑戦の循環を支える<br />
                 伴走者でありたいと考えています。
               </p>

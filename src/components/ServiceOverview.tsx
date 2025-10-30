@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import ContactButton from './ContactButton'
 
 export default function ServiceOverview() {
   const problemsAndSolutions = [
@@ -39,7 +40,7 @@ export default function ServiceOverview() {
       title: 'AIとの壁打ち',
       subtitle: 'アイデアを論理的に整理',
       description: 'ビジネスアイデアを持っているが、どこから手を付けていいか分からない。そんな時、Loopinの「AIとの壁打ち」機能が、あなたの思考を整理し、論理的な事業計画へと導きます。10の議題を軸に、AIが質問とアドバイスを繰り返し、事業構想を深めます。市場分析、競合調査、ビジネスモデルの検証など、起業に必要な観点から多角的にアイデアをブラッシュアップ。経験豊富な起業家のメンタリングのように、的確なフィードバックを提供します。',
-      imagePath: '/images/undraw_chat-with-ai_ir62.svg',
+      imagePath: '/images/Loopin.ai.png',
     },
     {
       title: '事業計画を自動生成・改善',
@@ -100,9 +101,16 @@ export default function ServiceOverview() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-12 px-4">
             {problemsAndSolutions.map((item, index) => (
-              <div key={index} className="flex flex-col space-y-6">
+              <div
+                key={index}
+                className={`flex flex-col space-y-4 md:space-y-6 pb-12 md:pb-0 ${
+                  index < problemsAndSolutions.length - 1
+                    ? 'border-b-2 md:border-b-0 border-gray-300'
+                    : ''
+                }`}
+              >
                 {/* 課題 */}
                 <div>
                   <h4 className="text-lg sm:text-xl font-bold text-gray-700 mb-2 md:mb-3 pb-2 border-b-2 border-gray-700">
@@ -114,8 +122,8 @@ export default function ServiceOverview() {
                 </div>
 
                 {/* 矢印 */}
-                <div className="flex justify-center">
-                  <div className="text-2xl md:text-3xl text-gradient-blue">↓</div>
+                <div className="flex justify-center py-2">
+                  <div className="text-3xl md:text-3xl text-gradient-blue">↓</div>
                 </div>
 
                 {/* 解決 */}
@@ -132,17 +140,22 @@ export default function ServiceOverview() {
           </div>
         </div>
 
+        {/* お問い合わせボタン */}
+        <div className="flex justify-center -mt-8 md:-mt-12 mb-16 md:mb-20">
+          <ContactButton className="text-base sm:text-lg px-8 sm:px-10 md:px-12 py-4 sm:py-5" />
+        </div>
+
         {/* サービス概要セクション */}
         <div className="mb-12 md:mb-16">
-          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 font-serif text-gray-900 flex items-center justify-center gap-3 px-4">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 font-serif text-gray-900 flex items-center justify-center gap-2 sm:gap-3 px-4">
             <Image
               src="/images/Loopin_logoType_light.png"
               alt="Loopin"
               width={180}
               height={48}
-              className="inline-block"
+              className="inline-block w-32 sm:w-40 md:w-44 lg:w-48 h-auto"
             />
-            <span>で出来ること</span>
+            <span className="whitespace-nowrap">で出来ること</span>
           </h3>
         </div>
 
@@ -154,7 +167,7 @@ export default function ServiceOverview() {
             >
               {/* 画像エリア */}
               <div className="w-full lg:w-1/2">
-                <div className="relative aspect-video bg-white rounded-2xl overflow-hidden flex items-center justify-center p-4 md:p-8">
+                <div className="relative aspect-video flex items-center justify-center">
                   <Image
                     src={feature.imagePath}
                     alt={feature.title}
