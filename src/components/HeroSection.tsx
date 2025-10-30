@@ -33,7 +33,7 @@ export default function HeroSection() {
 
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 leading-tight font-serif">
               <span className="text-gray-800">
-                その事業進めませんか？
+                循環の中で、事業は磨かれる
               </span>
             </h1>
 
