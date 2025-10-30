@@ -46,19 +46,19 @@ export default function ServiceOverview() {
       title: '事業計画を自動生成・改善',
       subtitle: 'アイデアをブラッシュアップ',
       description: '壁打ちで整理されたアイデアは、自動的に事業計画書として生成されます。市場分析、競合分析、収益モデルなど、投資家や銀行が求める情報を網羅。入力内容の整合性チェック、数値の妥当性、論理的な矛盾、必要項目の抜け漏れを自動で検出し、改善提案も提供。フォーマットに沿ったプロフェッショナルな事業計画書を効率的に作成でき、投資家向けの説得力ある資料作成をサポートします。',
-      imagePath: '/images/undraw_learning_qt7d.svg',
+      imagePath: '/images/Loopin.jigyou.png',
     },
     {
       title: '評価レポート',
       subtitle: '「進める／戻す」を明確化',
       description: '作成した事業計画を多角的に評価。市場規模・競合優位性・実現可能性など様々な観点からスコアリングし、事業の強み・弱みを可視化します。投資判断に重要な指標を定量化し、事業の成長性とリスクを客観的に評価。バージョン管理機能により改善の履歴を残し比較可能。改善点が明確になり、より強固な事業計画への進化を支援します。',
-      imagePath: '/images/undraw_good-team_zww8.svg',
+      imagePath: '/images/Loopin.rporte.png',
     },
     {
       title: 'PL表やPDFを出力',
       subtitle: '素早く共有',
       description: '完成した計画を即アウトプット。会議やピッチにすぐ活用できます。投資家向けのエグゼクティブサマリー、詳細な事業計画書、プレゼン資料など、用途に応じた最適なフォーマットで出力。３年分のPL表（損益計算書）も自動生成され、収益性の見通しを明確に提示できます。デザイン性の高い資料で説得力を向上させます。',
-      imagePath: '/images/undraw_drag-and-drop_v4po.svg',
+      imagePath: '/images/undraw_chat-interface_vofq 1.png',
     },
   ]
   
