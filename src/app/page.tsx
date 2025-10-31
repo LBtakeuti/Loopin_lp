@@ -6,6 +6,7 @@ import PricingPlans from '@/components/PricingPlans'
 import Testimonials from '@/components/Testimonials'
 import CTASection from '@/components/CTASection'
 import Footer from '@/components/Footer'
+import FloatingStartButton from '@/components/FloatingStartButton'
 
 export default function Home() {
   return (
@@ -14,10 +15,11 @@ export default function Home() {
       <ServiceOverview />
       <UseCases />
       <AboutUs />
-      <PricingPlans />
       <Testimonials />
+      {/* <PricingPlans /> */}
       <CTASection />
       <Footer />
+      <FloatingStartButton />
     </div>
   )
 }

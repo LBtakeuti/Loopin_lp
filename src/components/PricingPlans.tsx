@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import ContactButton from './ContactButton'
+import StartFreeButton from './StartFreeButton'
 
 export default function PricingPlans() {
   const [activeTab, setActiveTab] = useState<'individual' | 'business'>('individual')
@@ -154,8 +155,9 @@ export default function PricingPlans() {
         </div>
 
         {/* CTAボタンセクション */}
-        <div className="mt-12 md:mt-16 flex justify-center">
-          <ContactButton />
+        <div className="mt-12 md:mt-16 flex justify-center gap-4">
+          <ContactButton className="px-8 py-3 text-base" />
+          <StartFreeButton className="px-8 py-3 text-base" />
         </div>
       </div>
     </section>

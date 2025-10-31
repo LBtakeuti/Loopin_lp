@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import ContactButton from './ContactButton'
+import StartFreeButton from './StartFreeButton'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,8 +19,8 @@ export default function Header() {
     { label: 'TOP', href: isOtherPage ? '/#hero' : '#hero' },
     { label: 'Loopinとは', href: isOtherPage ? '/#service' : '#service' },
     { label: '機能', href: isOtherPage ? '/#features' : '#features' },
-    { label: 'プラン紹介', href: isOtherPage ? '/#pricing' : '#pricing' },
     { label: 'ユーザーの声', href: isOtherPage ? '/#testimonials' : '#testimonials' },
+    // { label: 'プラン紹介', href: isOtherPage ? '/#pricing' : '#pricing' },
     { label: 'お問い合わせ', href: '/contact', isSpecial: true },
   ]
 
@@ -44,9 +45,7 @@ export default function Header() {
           {/* デスクトップメニュー */}
           <nav className="hidden lg:flex items-center space-x-6">
             {menuItems.map((item) => (
-              item.isSpecial ? (
-                <ContactButton key={item.label} className="text-sm" />
-              ) : (
+              !item.isSpecial ? (
                 <Link
                   key={item.label}
                   href={item.href}
@@ -54,8 +53,10 @@ export default function Header() {
                 >
                   {item.label}
                 </Link>
-              )
+              ) : null
             ))}
+            <StartFreeButton className="text-sm px-6 py-2" />
+            <ContactButton className="text-sm px-6 py-2" />
           </nav>
 
           {/* モバイルメニューボタン */}
@@ -92,11 +93,7 @@ export default function Header() {
         >
           <nav className="py-4 border-t border-gray-200">
             {menuItems.map((item) => (
-              item.isSpecial ? (
-                <div key={item.label} className="py-2">
-                  <ContactButton className="text-sm w-full" />
-                </div>
-              ) : (
+              !item.isSpecial ? (
                 <Link
                   key={item.label}
                   href={item.href}
@@ -105,8 +102,14 @@ export default function Header() {
                 >
                   {item.label}
                 </Link>
-              )
+              ) : null
             ))}
+            <div className="py-2">
+              <StartFreeButton className="text-sm w-full px-6 py-2" />
+            </div>
+            <div className="py-2">
+              <ContactButton className="text-sm w-full px-6 py-2" />
+            </div>
           </nav>
         </div>
       </div>

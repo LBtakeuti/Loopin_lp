@@ -1,16 +1,16 @@
 import Image from 'next/image'
-import ContactButton from './ContactButton'
+import StartFreeButton from './StartFreeButton'
 
 export default function ServiceOverview() {
   const problemsAndSolutions = [
     {
       problem: {
-        title: '事業の進め方が分からない',
-        description: 'スタートアップ創業者のAさん「新規事業のアイデアはあるが、何から始めればいいか分からない。市場調査？競合分析？どの順番で進めるべき？」',
+        title: 'アイデアに自信はあるけど…',
+        description: 'アイデアに自信があるけど、本当に売れるか不安。壁打ち相手がいない。',
       },
       solution: {
-        title: '必要なステップを自動ガイド',
-        description: 'AIとの対話を通じて、10の重要な議題を順番に整理。市場分析、競合調査、ビジネスモデルの検証まで、必要なステップを漏れなくガイドします。',
+        title: 'アイデアを整理、「自信」を数字に',
+        description: '考えを整理しながら、アイデアの評価を数値化することで次のアクションが鮮明に。業界に特化したAIアドバイザーとの対話で客観的な視点から事業を推進させましょう。',
       },
     },
     {
@@ -25,12 +25,12 @@ export default function ServiceOverview() {
     },
     {
       problem: {
-        title: '書類作成に膨大な時間',
-        description: '新規事業担当のCさん「投資家向けの資料、銀行の融資申請書、社内プレゼン資料...。それぞれフォーマットが違い、作成だけで何週間もかかってしまう」',
+        title: '過去の会話がなかったことに',
+        description: 'AIと対話しても過去の会話が積み上がっていかない。話すだけど時間だけが消費されていく…',
       },
       solution: {
-        title: '複数フォーマットを数分で自動生成',
-        description: '一度入力すれば、用途に応じた複数フォーマットで自動出力。エグゼクティブサマリー、詳細計画書、プレゼン資料、3年分のPL表まで、数分で完成。',
+        title: 'アドバイスより使える成果物を',
+        description: 'Loopinなら、全ての会話が自分の道しるべに。実務でそのまま使える事業計画書、PL表、評価レポート等が自動生成。',
       },
     },
   ]
@@ -101,24 +101,32 @@ export default function ServiceOverview() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-12 px-4">
-            {problemsAndSolutions.map((item, index) => (
-              <div
-                key={index}
-                className={`flex flex-col space-y-4 md:space-y-6 pb-12 md:pb-0 ${
-                  index < problemsAndSolutions.length - 1
-                    ? 'border-b-2 md:border-b-0 border-gray-300'
-                    : ''
-                }`}
-              >
+          <div className="px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
+              {problemsAndSolutions.map((item, index) => (
+                <div
+                  key={index}
+                  className={`flex flex-col space-y-4 md:space-y-6 pb-12 md:pb-0 ${
+                    index < problemsAndSolutions.length - 1
+                      ? 'border-b-2 md:border-b-0 border-gray-300'
+                      : ''
+                  }`}
+                >
                 {/* 課題 */}
-                <div>
-                  <h4 className="text-lg sm:text-xl font-bold text-gray-700 mb-2 md:mb-3 pb-2 border-b-2 border-gray-700">
-                    {item.problem.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-2 md:mt-3">
-                    {item.problem.description}
-                  </p>
+                <div className="space-y-0">
+                  <div className="h-[4rem] md:h-[5rem] flex items-end mb-0">
+                    <div className="w-full">
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-700 mb-2">
+                        {item.problem.title}
+                      </h4>
+                      <div className="border-b-2 border-gray-700 w-full"></div>
+                    </div>
+                  </div>
+                  <div className="min-h-[6rem] md:min-h-[7rem]">
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4 md:mt-5">
+                      {item.problem.description}
+                    </p>
+                  </div>
                 </div>
 
                 {/* 矢印 */}
@@ -127,22 +135,30 @@ export default function ServiceOverview() {
                 </div>
 
                 {/* 解決 */}
-                <div>
-                  <h4 className="text-lg sm:text-xl font-bold text-gradient-blue mb-2 md:mb-3 pb-2 border-b-2 border-gradient-blue">
-                    {item.solution.title}
-                  </h4>
-                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed mt-2 md:mt-3">
-                    {item.solution.description}
-                  </p>
+                <div className="space-y-0">
+                  <div className="h-[4rem] md:h-[5rem] flex items-end mb-0">
+                    <div className="w-full">
+                      <h4 className="text-lg sm:text-xl font-bold text-gradient-blue mb-2">
+                        {item.solution.title}
+                      </h4>
+                      <div className="border-b-2 border-gradient-blue w-full"></div>
+                    </div>
+                  </div>
+                  <div className="min-h-[8rem] md:min-h-[9rem]">
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed mt-4 md:mt-5">
+                      {item.solution.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* お問い合わせボタン */}
+        {/* 無料で始めるボタン */}
         <div className="flex justify-center -mt-8 md:-mt-12 mb-16 md:mb-20">
-          <ContactButton className="text-base sm:text-lg px-8 sm:px-10 md:px-12 py-4 sm:py-5" />
+          <StartFreeButton className="text-base sm:text-lg px-8 sm:px-10 md:px-12 py-4 sm:py-5" />
         </div>
 
         {/* サービス概要セクション */}

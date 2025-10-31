@@ -254,7 +254,7 @@ export default function ContactForm() {
 
           {/* 送信ボタン */}
           <div className="text-center">
-            <ContactButton type="submit" disabled={isSubmitting}>
+            <ContactButton type="submit" disabled={isSubmitting} className="px-8 py-3 text-base">
               {isSubmitting ? '送信中...' : '送信'}
             </ContactButton>
           </div>

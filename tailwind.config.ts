@@ -24,6 +24,11 @@ const config: Config = {
           DEFAULT: '#8b5cf6',
           foreground: '#ffffff',
         },
+        "color-1": "hsl(var(--color-1))",
+        "color-2": "hsl(var(--color-2))",
+        "color-3": "hsl(var(--color-3))",
+        "color-4": "hsl(var(--color-4))",
+        "color-5": "hsl(var(--color-5))",
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #3b82f6, #10b981, #8b5cf6)',
@@ -34,6 +39,7 @@ const config: Config = {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'shimmer': 'shimmer 2s linear infinite',
         'aurora': 'aurora 60s linear infinite',
+        'rainbow': 'rainbow var(--speed, 2s) infinite linear',
       },
       keyframes: {
         shimmer: {
@@ -47,6 +53,10 @@ const config: Config = {
           to: {
             backgroundPosition: '350% 50%, 350% 50%',
           },
+        },
+        rainbow: {
+          '0%': { backgroundPosition: '0%' },
+          '100%': { backgroundPosition: '200%' },
         },
       },
       fontFamily: {

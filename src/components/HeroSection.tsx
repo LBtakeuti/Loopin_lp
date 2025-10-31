@@ -6,7 +6,7 @@ import { AuroraBackground } from '@/components/ui/aurora-background'
 
 export default function HeroSection() {
   return (
-    <AuroraBackground className="relative min-h-[80vh] md:min-h-screen" showRadialGradient={false}>
+    <AuroraBackground id="hero" className="relative min-h-[80vh] md:min-h-screen" showRadialGradient={false}>
       <div className="relative z-10 py-12 md:py-20 px-4 md:px-8 lg:px-16 xl:px-32 max-w-[1800px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center min-h-[50vh] md:min-h-[70vh]">
           {/* 左側：テキストコンテンツ */}
@@ -33,7 +33,7 @@ export default function HeroSection() {
 
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 leading-tight font-serif">
               <span className="text-gray-800">
-                循環の中で、事業は磨かれる
+                アイデアを、形に
               </span>
             </h1>
 

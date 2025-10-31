@@ -19,10 +19,11 @@ export default function ContactButton({
   children = 'お問い合わせ'
 }: ContactButtonProps) {
   const baseClasses = `
-    inline-block px-8 py-3 rounded-lg font-medium text-white
-    bg-blue-600 hover:bg-blue-700
+    inline-block rounded-lg font-medium
+    bg-white text-gray-700 border-2 border-gray-300
+    hover:bg-gray-50 hover:border-gray-400
     transform transition-all duration-300 hover:scale-105
-    shadow-lg hover:shadow-xl
+    shadow-sm hover:shadow-md
     disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
     ${className}
   `.trim();

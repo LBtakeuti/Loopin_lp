@@ -9,7 +9,7 @@ export default function Footer() {
   const footerLinks = {
     product: [
       { label: '機能', href: '/#features' },
-      { label: 'プラン紹介', href: '/#pricing' },
+      // { label: 'プラン紹介', href: '/#pricing' },
       { label: 'デモを予約', href: '/contact' },
     ],
     company: [

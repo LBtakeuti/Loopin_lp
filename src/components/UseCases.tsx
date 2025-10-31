@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import StartFreeButton from './StartFreeButton'
 
 export default function UseCases() {
   const cases = [
@@ -38,7 +39,7 @@ export default function UseCases() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 gap-y-8 md:gap-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 gap-y-8 md:gap-y-10 mb-12 md:mb-16">
           {cases.map((useCase, index) => (
             <div
               key={index}
@@ -63,6 +64,11 @@ export default function UseCases() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* 無料で始めるボタン */}
+        <div className="flex justify-center">
+          <StartFreeButton className="text-base sm:text-lg px-8 sm:px-10 md:px-12 py-4 sm:py-5" />
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import ContactButton from './ContactButton'
+import StartFreeButton from './StartFreeButton'
 
 export default function CTASection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -79,8 +79,9 @@ export default function CTASection() {
             </div>
 
             {/* インタラクティブなカード（画面中央） */}
-            <div className="relative inline-block">
-              <ContactButton className="text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6" /></div>
+            <div className="relative flex justify-center flex-wrap">
+              <StartFreeButton className="text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6" />
+            </div>
 
 
           </div>
