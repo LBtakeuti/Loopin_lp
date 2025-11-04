@@ -1,8 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { RainbowButton } from '@/components/ui/rainbow-button'
+import { ButtonColorful } from '@/components/ui/button-colorful'
 
 export default function FloatingStartButton() {
   const [isVisible, setIsVisible] = useState(false)
@@ -51,11 +50,14 @@ export default function FloatingStartButton() {
           : 'opacity-0 translate-y-10 pointer-events-none'
       }`}
     >
-      <Link href="/contact">
-        <RainbowButton className="transition-all duration-300 px-10 py-5 text-lg md:text-xl whitespace-nowrap">
-          Loopinを無料で始める
-        </RainbowButton>
-      </Link>
+      <a href="https://www.loopin.jp/signup" target="_blank" rel="noopener noreferrer" className="relative inline-block">
+        {/* ブラーエフェクト（背面） */}
+        <div className="absolute bottom-[-30%] left-1/2 -translate-x-1/2 -z-10 h-2/5 w-4/5 bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 blur-[1.2rem] transition-all duration-500 opacity-100" />
+        <ButtonColorful
+          label="Loopinを無料で始める"
+          className="transition-all duration-300 px-10 py-5 text-lg md:text-xl whitespace-nowrap"
+        />
+      </a>
     </div>
   )
 }

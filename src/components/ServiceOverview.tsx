@@ -25,8 +25,8 @@ export default function ServiceOverview() {
     },
     {
       problem: {
-        title: '過去の会話がなかったことに',
-        description: 'AIと対話しても過去の会話が積み上がっていかない。話すだけど時間だけが消費されていく…',
+        title: '「AI」との会話がなかったことに',
+        description: 'AIと対話しても過去の会話が積み上がっていかない。話すだけで時間だけが消費されていく…。\n具体的に、何のアクションを起こせばいいのか分からない。',
       },
       solution: {
         title: 'アドバイスより使える成果物を',
@@ -66,8 +66,15 @@ export default function ServiceOverview() {
     <section id="service" className="py-24 section-padding relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-[72px] py-6 md:py-8 px-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-serif">
-            <span className="text-gray-900">Loopinとは</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-serif flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+            <Image
+              src="/images/Loopin_logoType_light.png"
+              alt="Loopin"
+              width={240}
+              height={60}
+              className="w-32 sm:w-40 md:w-48 lg:w-56 xl:w-60 h-auto"
+            />
+            <span className="text-gray-900 leading-none">とは</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             「Loopin」は、AIとの対話によって事業計画を構築・改善できるサービスです。<br className="hidden sm:block" />
@@ -123,7 +130,7 @@ export default function ServiceOverview() {
                     </div>
                   </div>
                   <div className="min-h-[6rem] md:min-h-[7rem]">
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4 md:mt-5">
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4 md:mt-5 whitespace-pre-line">
                       {item.problem.description}
                     </p>
                   </div>

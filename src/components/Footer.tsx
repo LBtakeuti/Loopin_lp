@@ -10,7 +10,6 @@ export default function Footer() {
     product: [
       { label: '機能', href: '/#features' },
       // { label: 'プラン紹介', href: '/#pricing' },
-      { label: 'デモを予約', href: '/contact' },
     ],
     company: [
       { label: 'Loopinとは', href: '/#service' },
@@ -21,6 +20,7 @@ export default function Footer() {
       { label: 'お問い合わせ', href: '/contact' },
       { label: 'プライバシーポリシー', href: '/privacy' },
       { label: '利用規約', href: '/terms' },
+      { label: '特定商取引法に基づく表記', href: '/tokutei' },
     ],
   }
 
@@ -101,15 +101,15 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
             <p>© {currentYear} Loopin. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6 mt-4 md:mt-0">
               <Link href="/privacy" className="hover:text-gradient-blue transition-colors duration-200">
                 プライバシーポリシー
               </Link>
               <Link href="/terms" className="hover:text-gradient-blue transition-colors duration-200">
                 利用規約
               </Link>
-              <Link href="#" className="hover:text-gradient-blue transition-colors duration-200">
-                Cookie設定
+              <Link href="/tokutei" className="hover:text-gradient-blue transition-colors duration-200">
+                特定商取引法に基づく表記
               </Link>
             </div>
           </div>

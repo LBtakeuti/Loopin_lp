@@ -26,19 +26,8 @@ export function ButtonColorful({
             <div
                 className={cn(
                     "absolute inset-0",
-                    "bg-[length:300%_100%]",
-                    "bg-gradient-to-r",
-                    "from-purple-400 from-[0%]",
-                    "via-purple-400 via-[8%]",
-                    "via-violet-400 via-[16%]",
-                    "via-indigo-400 via-[24%]",
-                    "via-blue-400 via-[32%]",
-                    "via-sky-400 via-[40%]",
-                    "via-cyan-400 via-[48%]",
-                    "via-teal-400 via-[56%]",
-                    "via-emerald-400 via-[72%]",
-                    "via-green-400 via-[88%]",
-                    "to-green-400 to-[100%]",
+                    "rounded-md",
+                    "bg-gradient-to-r from-purple-400 via-blue-400 to-green-400",
                     "opacity-100",
                     "transition-all duration-500",
                     "group-hover:scale-110 group-hover:brightness-110"

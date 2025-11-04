@@ -13,15 +13,29 @@ interface StartFreeButtonProps {
 }
 
 export default function StartFreeButton({
-  href = '/contact',
+  href = 'https://www.loopin.jp/signup',
   onClick,
   type = 'button',
   disabled = false,
   className = '',
   children = '無料で始める'
 }: StartFreeButtonProps) {
-  // href が指定されている場合は Link として描画
+  // 外部URLの場合は a タグとして描画
+  const isExternalUrl = href && (href.startsWith('http://') || href.startsWith('https://'));
+
+  // href が指定されている場合は Link または a として描画
   if (href && !onClick && type === 'button') {
+    if (isExternalUrl) {
+      return (
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          <ButtonColorful
+            label={typeof children === 'string' ? children : '無料で始める'}
+            className={cn("font-medium", className)}
+            disabled={disabled}
+          />
+        </a>
+      );
+    }
     return (
       <Link href={href}>
         <ButtonColorful
