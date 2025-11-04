@@ -13,7 +13,8 @@ export default function Header() {
   const isContactPage = pathname === '/contact'
   const isPrivacyPage = pathname === '/privacy'
   const isTermsPage = pathname === '/terms'
-  const isOtherPage = isContactPage || isPrivacyPage || isTermsPage
+  const isTokuteiPage = pathname === '/tokutei'
+  const isOtherPage = isContactPage || isPrivacyPage || isTermsPage || isTokuteiPage
 
   const menuItems = [
     { label: 'TOP', href: isOtherPage ? '/#hero' : '#hero' },

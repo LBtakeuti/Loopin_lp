@@ -84,7 +84,7 @@ export default function ServiceOverview() {
         </div>
 
         {/* 課題・解決セクション */}
-        <div className="mb-32">
+        <div className="mb-12 md:mb-16">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-8 md:mb-12 px-4">
             <div className="flex-1 text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-serif text-gray-900">
@@ -109,11 +109,11 @@ export default function ServiceOverview() {
           </div>
 
           <div className="px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {problemsAndSolutions.map((item, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col space-y-4 md:space-y-6 pb-12 md:pb-0 ${
+                  className={`flex flex-col space-y-2 md:space-y-6 pb-4 md:pb-0 ${
                     index < problemsAndSolutions.length - 1
                       ? 'border-b-2 md:border-b-0 border-gray-300'
                       : ''
@@ -121,7 +121,7 @@ export default function ServiceOverview() {
                 >
                 {/* 課題 */}
                 <div className="space-y-0">
-                  <div className="h-[4rem] md:h-[5rem] flex items-end mb-0">
+                  <div className="h-[3.5rem] md:h-[5rem] flex items-end mb-0">
                     <div className="w-full">
                       <h4 className="text-lg sm:text-xl font-bold text-gray-700 mb-2">
                         {item.problem.title}
@@ -129,21 +129,21 @@ export default function ServiceOverview() {
                       <div className="border-b-2 border-gray-700 w-full"></div>
                     </div>
                   </div>
-                  <div className="min-h-[6rem] md:min-h-[7rem]">
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-4 md:mt-5 whitespace-pre-line">
+                  <div className="min-h-[5rem] md:min-h-[7rem]">
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed mt-3 md:mt-5 whitespace-pre-line">
                       {item.problem.description}
                     </p>
                   </div>
                 </div>
 
                 {/* 矢印 */}
-                <div className="flex justify-center py-2">
-                  <div className="text-3xl md:text-3xl text-gradient-blue">↓</div>
+                <div className="flex justify-center py-1 md:py-2">
+                  <div className="text-2xl md:text-3xl text-gradient-blue">↓</div>
                 </div>
 
                 {/* 解決 */}
                 <div className="space-y-0">
-                  <div className="h-[4rem] md:h-[5rem] flex items-end mb-0">
+                  <div className="h-[3.5rem] md:h-[5rem] flex items-end mb-0">
                     <div className="w-full">
                       <h4 className="text-lg sm:text-xl font-bold text-gradient-blue mb-2">
                         {item.solution.title}
@@ -151,8 +151,8 @@ export default function ServiceOverview() {
                       <div className="border-b-2 border-gradient-blue w-full"></div>
                     </div>
                   </div>
-                  <div className="min-h-[8rem] md:min-h-[9rem]">
-                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed mt-4 md:mt-5">
+                  <div className="min-h-[6rem] md:min-h-[9rem]">
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed mt-3 md:mt-5">
                       {item.solution.description}
                     </p>
                   </div>
@@ -164,13 +164,13 @@ export default function ServiceOverview() {
         </div>
 
         {/* 無料で始めるボタン */}
-        <div className="flex justify-center -mt-8 md:-mt-12 mb-16 md:mb-20">
+        <div className="flex justify-center mb-20 md:mb-24">
           <StartFreeButton className="text-base sm:text-lg px-8 sm:px-10 md:px-12 py-4 sm:py-5" />
         </div>
 
         {/* サービス概要セクション */}
         <div className="mb-12 md:mb-16">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 font-serif text-gray-900 flex items-center justify-center gap-2 sm:gap-3 px-4">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-[60px] font-serif text-gray-900 flex items-center justify-center gap-2 sm:gap-3 px-4">
             <Image
               src="/images/Loopin_logoType_light.png"
               alt="Loopin"

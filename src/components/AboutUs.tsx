@@ -6,16 +6,40 @@ import Image from 'next/image'
 export default function AboutUs() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
+  const [radius, setRadius] = useState(220) // デフォルトはデスクトップサイズ
 
   useEffect(() => {
     setIsVisible(true)
+
+    // クライアントサイドでのみ半径を計算
+    const updateRadius = () => {
+      const width = window.innerWidth
+      if (width < 640) {
+        setRadius(130)
+      } else if (width < 768) {
+        setRadius(150)
+      } else if (width < 1024) {
+        setRadius(180)
+      } else {
+        setRadius(220)
+      }
+    }
+
+    // 初回実行
+    updateRadius()
+
+    // リサイズイベントをリスン
+    window.addEventListener('resize', updateRadius)
 
     // 循環アニメーション: 各要素を順番に強調（7.5秒で1周、各要素は2.5秒）
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % 3)
     }, 2500)
 
-    return () => clearInterval(interval)
+    return () => {
+      clearInterval(interval)
+      window.removeEventListener('resize', updateRadius)
+    }
   }, [])
 
   const cycles = [
@@ -229,14 +253,6 @@ export default function AboutUs() {
           <div className="absolute inset-0">
             {cycles.map((cycle, index) => {
               const angle = (index * 120) - 90; // 上から始まって120度ずつ
-              // レスポンシブな半径: モバイル130px, sm 150px, md 180px, lg 220px
-              const baseRadius = typeof window !== 'undefined'
-                ? window.innerWidth < 640 ? 130
-                  : window.innerWidth < 768 ? 150
-                  : window.innerWidth < 1024 ? 180
-                  : 220
-                : 220;
-              const radius = baseRadius;
               const x = Math.cos(angle * Math.PI / 180) * radius;
               const y = Math.sin(angle * Math.PI / 180) * radius;
               const isActive = activeIndex === index;
