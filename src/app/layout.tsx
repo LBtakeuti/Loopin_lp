@@ -11,7 +11,7 @@ const notoSerifJP = Noto_Serif_JP({
 })
 
 export const metadata: Metadata = {
-  title: 'Loopin - 循環の中で、事業は磨かれる',
+  title: 'Loopin - アイデアを、形に',
   description: '小さな試行錯誤が積み重なり、やがて大きな成長を生む。Loopinは、新規事業を推進するための"挑戦の循環"を支援するプラットフォームです。',
   keywords: '新規事業,事業計画,スタートアップ,ビジネスプラン,AI,循環',
   icons: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     apple: '/images/Loopin_favicon.png',
   },
   openGraph: {
-    title: 'Loopin - 循環の中で、事業は磨かれる',
+    title: 'Loopin - アイデアを、形に',
     description: '新規事業を推進するための"挑戦の循環"を支援するプラットフォーム',
     type: 'website',
     images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Loopin - 循環の中で、事業は磨かれる',
+    title: 'Loopin - アイデアを、形に',
     description: '新規事業を推進するための"挑戦の循環"を支援するプラットフォーム',
     images: ['/images/Loopin_favicon.png'],
   },
