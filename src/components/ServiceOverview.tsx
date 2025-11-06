@@ -58,7 +58,7 @@ export default function ServiceOverview() {
       title: 'PL表やPDFを出力',
       subtitle: '素早く共有',
       description: '完成した計画を即アウトプット。会議やピッチにすぐ活用できます。投資家向けのエグゼクティブサマリー、詳細な事業計画書、プレゼン資料など、用途に応じた最適なフォーマットで出力。３年分のPL表（損益計算書）も自動生成され、収益性の見通しを明確に提示できます。デザイン性の高い資料で説得力を向上させます。',
-      imagePath: '/images/undraw_chat-interface_vofq 1.png',
+      imagePath: '/images/undraw_chat-interface_vofq1.png',
     },
   ]
   
