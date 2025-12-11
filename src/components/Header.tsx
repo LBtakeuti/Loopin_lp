@@ -4,17 +4,15 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import ContactButton from './ContactButton'
 import StartFreeButton from './StartFreeButton'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
-  const isContactPage = pathname === '/contact'
   const isPrivacyPage = pathname === '/privacy'
   const isTermsPage = pathname === '/terms'
   const isTokuteiPage = pathname === '/tokutei'
-  const isOtherPage = isContactPage || isPrivacyPage || isTermsPage || isTokuteiPage
+  const isOtherPage = isPrivacyPage || isTermsPage || isTokuteiPage
 
   const menuItems = [
     { label: 'TOP', href: isOtherPage ? '/#hero' : '#hero' },
@@ -22,7 +20,6 @@ export default function Header() {
     { label: '機能', href: isOtherPage ? '/#features' : '#features' },
     { label: 'ユーザーの声', href: isOtherPage ? '/#testimonials' : '#testimonials' },
     // { label: 'プラン紹介', href: isOtherPage ? '/#pricing' : '#pricing' },
-    { label: 'お問い合わせ', href: '/contact', isSpecial: true },
   ]
 
   return (
@@ -46,18 +43,15 @@ export default function Header() {
           {/* デスクトップメニュー */}
           <nav className="hidden lg:flex items-center space-x-6">
             {menuItems.map((item) => (
-              !item.isSpecial ? (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-sm transition-colors duration-200 text-gray-700 hover:text-gradient-blue"
-                >
-                  {item.label}
-                </Link>
-              ) : null
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-sm transition-colors duration-200 text-gray-700 hover:text-gradient-blue"
+              >
+                {item.label}
+              </Link>
             ))}
             <StartFreeButton className="text-sm px-6 py-2" />
-            <ContactButton className="text-sm px-6 py-2" />
           </nav>
 
           {/* モバイルメニューボタン */}
@@ -94,22 +88,17 @@ export default function Header() {
         >
           <nav className="py-4 border-t border-gray-200">
             {menuItems.map((item) => (
-              !item.isSpecial ? (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="block py-2 text-sm transition-colors duration-200 text-gray-700 hover:text-gradient-blue"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ) : null
+              <Link
+                key={item.label}
+                href={item.href}
+                className="block py-2 text-sm transition-colors duration-200 text-gray-700 hover:text-gradient-blue"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
             ))}
             <div className="py-2">
               <StartFreeButton className="text-sm w-full px-6 py-2" />
-            </div>
-            <div className="py-2">
-              <ContactButton className="text-sm w-full px-6 py-2" />
             </div>
           </nav>
         </div>

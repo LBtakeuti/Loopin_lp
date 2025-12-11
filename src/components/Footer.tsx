@@ -17,7 +17,6 @@ export default function Footer() {
       { label: 'ユーザーの声', href: '/#testimonials' },
     ],
     support: [
-      { label: 'お問い合わせ', href: '/contact' },
       { label: 'プライバシーポリシー', href: '/privacy' },
       { label: '利用規約', href: '/terms' },
       { label: '特定商取引法に基づく表記', href: '/tokutei' },

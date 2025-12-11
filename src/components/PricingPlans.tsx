@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import ContactButton from './ContactButton'
 import StartFreeButton from './StartFreeButton'
 
 export default function PricingPlans() {
@@ -155,8 +154,7 @@ export default function PricingPlans() {
         </div>
 
         {/* CTAボタンセクション */}
-        <div className="mt-12 md:mt-16 flex justify-center gap-4">
-          <ContactButton className="px-8 py-3 text-base" />
+        <div className="mt-12 md:mt-16 flex justify-center">
           <StartFreeButton className="px-8 py-3 text-base" />
         </div>
       </div>
